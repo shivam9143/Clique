@@ -9,13 +9,15 @@ import retrofit2.Retrofit
 @Module
 class MainModule {
 
+    @MainScope
     @Provides
     fun provideMainApiService(mainApi: MainApi): MainApiHelper {
         return MainApiHelper(mainApi)
     }
 
+    @MainScope
     @Provides
-    fun provideMainApi(retrofit: Retrofit): MainApi? {
+    fun provideMainApi(retrofit: Retrofit): MainApi {
         return retrofit.create(MainApi::class.java)
     }
 

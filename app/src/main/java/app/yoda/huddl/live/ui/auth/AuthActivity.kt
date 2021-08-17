@@ -4,13 +4,14 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import app.yoda.huddl.live.HuddleBaseActivity
 import app.yoda.huddl.live.R
+import app.yoda.huddl.live.ViewModelFactory
 import app.yoda.huddl.live.ViewModelProviderFactory
 import javax.inject.Inject
 
 class AuthActivity : HuddleBaseActivity() {
 
     @Inject
-    lateinit var viewModelFactory: ViewModelProviderFactory
+    lateinit var viewModelFactory: ViewModelFactory
 
     lateinit var authViewModel: AuthViewModel
 

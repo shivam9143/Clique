@@ -1,4 +1,4 @@
-package app.yoda.huddl.live
+package app.yoda.huddl.live.ui.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,8 @@ import android.os.Handler
 import android.os.Looper
 import app.yoda.huddl.live.AppUtils.SignInTokenManager
 import app.yoda.huddl.live.Constants.HuddlConstants.SPLASH_TIME_OUT
+import app.yoda.huddl.live.R
+import app.yoda.huddl.live.ViewModelProviderFactory
 import app.yoda.huddl.live.ui.auth.AuthActivity
 import javax.inject.Inject
 
@@ -15,6 +17,9 @@ class SplashActivity : AppCompatActivity() {
 
     @Inject
     lateinit var signInTokenManager: SignInTokenManager
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProviderFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

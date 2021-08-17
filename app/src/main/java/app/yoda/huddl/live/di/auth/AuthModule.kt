@@ -10,13 +10,15 @@ import retrofit2.Retrofit
 @Module
 class AuthModule {
 
+    @AuthScope
     @Provides
     fun provideAuthApiService(authApi: AuthApi): AuthApiHelper {
         return AuthApiHelper(authApi)
     }
 
+    @AuthScope
     @Provides
-    fun provideAuthApi(retrofit: Retrofit): AuthApi? {
+    fun provideAuthApi(retrofit: Retrofit): AuthApi {
         return retrofit.create(AuthApi::class.java)
     }
 

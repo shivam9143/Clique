@@ -8,8 +8,7 @@ import app.yoda.huddl.live.SessionManager
 import app.yoda.huddl.live.network.auth.AuthApi
 import javax.inject.Inject
 
-class AuthViewModel @Inject constructor(val sessionManager: SessionManager, val authApi: AuthApi,
-                                        val authRepository: AuthRepository): ViewModel() {
+class AuthViewModel @Inject constructor(repository: AuthRepository, sessionManager: SessionManager): ViewModel() {
 
     private val TAG = "AuthViewModel"
 
@@ -17,12 +16,11 @@ class AuthViewModel @Inject constructor(val sessionManager: SessionManager, val 
         Log.e(TAG, TAG)
     }
 
-    fun getAuthState() : LiveData<AuthState> = sessionManager.getAuthUser()
+//    fun getAuthState() : LiveData<AuthState> = sessionManager.getAuthUser()
 
     fun authenticateUser()
     {
         //authenticate user with auth token and then save token in SessionManager
-
     }
 
 }
