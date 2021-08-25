@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">Huddl</string>
     <string translatable="true" name="huddl">Huddl</string>
+    <string name="huddl_tagline" translatable="true">Monitize your influence and engage with your fans!</string>
+
 </resources>

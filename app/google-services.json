@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "315331261678",
+    "project_id": "huddl-386e2",
+    "storage_bucket": "huddl-386e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315331261678:android:f1959993234c2ff24f2fff",
+        "android_client_info": {
+          "package_name": "yoda.huddl.live"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315331261678-aa5gg2551i7ljp6sl50emcg3b2r8q8rk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy7IUaRNNaycuQCR4AO-S-b25v8z0kcK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315331261678-aa5gg2551i7ljp6sl50emcg3b2r8q8rk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

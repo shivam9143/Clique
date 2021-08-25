@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/createProfile">
+
+    <fragment
+        android:id="@+id/mobileNumberFrag"
+        android:name="yoda.huddl.live.ui.auth.MobileNumberFrag"
+        android:label="fragment_mobile_number"
+        tools:layout="@layout/fragment_mobile_number" />
+    <fragment
+        android:id="@+id/otpVerification"
+        android:name="yoda.huddl.live.ui.auth.OtpVerification"
+        android:label="fragment_otp_verification"
+        tools:layout="@layout/fragment_otp_verification" />
+    <fragment
+        android:id="@+id/createProfile"
+        android:name="yoda.huddl.live.ui.auth.CreateProfile"
+        android:label="fragment_create_profile"
+        tools:layout="@layout/fragment_create_profile" />
+</navigation>
