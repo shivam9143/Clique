@@ -9,14 +9,14 @@ import yoda.huddl.live.ViewModelFactory
 import yoda.huddl.live.di.ViewModelKey
 import yoda.huddl.live.ui.auth.AuthViewModel
 
-@Module
+//@Module
 abstract class AuthViewModelModule {
 
-    @Binds
-    abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(AuthViewModel::class)
-    abstract fun authViewModel(viewModel: AuthViewModel): ViewModel
+//    @Binds
+//    abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
+//
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(AuthViewModel::class)
+//    abstract fun authViewModel(viewModel: AuthViewModel): ViewModel
 }

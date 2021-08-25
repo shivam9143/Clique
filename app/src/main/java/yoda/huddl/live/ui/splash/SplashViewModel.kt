@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
-class SplashViewModel @Inject constructor(repository: SplashRepository) : ViewModel() {
+class SplashViewModel  : ViewModel() {
 
     private val TAG = "SplashViewModel"
 

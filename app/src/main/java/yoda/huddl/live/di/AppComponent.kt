@@ -1,26 +1,19 @@
 package yoda.huddl.live.di
 
-import dagger.Component
-import dagger.android.AndroidInjectionModule
-import yoda.huddl.live.HuddlApplication
-import yoda.huddl.live.di.auth.AuthModule
-import yoda.huddl.live.ui.auth.AuthActivity
-import javax.inject.Singleton
-
-@Singleton
-@Component(
-    modules = [AndroidInjectionModule::class, AppModule::class, NetworkModule::class]
-)
+//@Singleton
+//@Component(
+//    modules = [AndroidInjectionModule::class, AppModule::class, NetworkModule::class]
+//)
 interface AppComponent  {
 
-    fun inject(appComponent: HuddlApplication)
-    fun inject(authActivity: AuthActivity)
-
-    @Component.Builder
-    interface Builder {
-        fun appModule(appModule: AppModule) :  Builder
-        fun build(): AppComponent
-    }
+//    fun inject(appComponent: HuddlApplication)
+//    fun inject(authActivity: AuthActivity)
+//
+//    @Component.Builder
+//    interface Builder {
+//        fun appModule(appModule: AppModule) :  Builder
+//        fun build(): AppComponent
+//    }
 }
 
 //@Singleton

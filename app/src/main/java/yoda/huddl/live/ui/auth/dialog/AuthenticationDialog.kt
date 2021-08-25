@@ -24,13 +24,12 @@ import java.util.stream.Collectors.toList
 import kotlin.collections.LinkedHashMap
 
 
-class AuthenticationDialog constructor(context: Context, listener: AuthenticationListener?) :
+class AuthenticationDialog constructor(context: Context, val listener: AuthenticationListener?) :
     Dialog(context) {
 
 
     private var redirect_url: String? = null
     private var request_url: String? = null
-    private var listener: AuthenticationListener? = null
 //    ttps://api.instagram.com/oauth/authorize
 //    ?client_id={instagram-app-id}
 //    &redirect_uri={redirect-uri}

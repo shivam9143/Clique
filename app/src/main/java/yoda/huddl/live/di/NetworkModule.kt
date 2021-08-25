@@ -3,6 +3,8 @@ package yoda.huddl.live.di
 
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -17,10 +19,11 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class NetworkModule {
+@InstallIn(SingletonComponent::class)
+object NetworkModule {
     @Singleton
     @Provides
-    fun provideRetrofitInstance(client: OkHttpClient): Retrofit? {
+    fun provideRetrofitInstance(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(HuddlConstants.BASE_URL)
             .addConverterFactory(provideGsonConvertorFactory())
@@ -31,7 +34,7 @@ class NetworkModule {
     @Named("ig")
     @Singleton
     @Provides
-    fun provideIGRetrofitInstance(client: OkHttpClient): Retrofit? {
+    fun provideIGRetrofitInstance(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(HuddlConstants.IG_BASE_URL)
             .addConverterFactory(provideGsonConvertorFactory())

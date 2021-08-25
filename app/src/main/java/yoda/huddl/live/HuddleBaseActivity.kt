@@ -3,12 +3,14 @@ package yoda.huddl.live
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import dagger.android.support.DaggerAppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 import yoda.huddl.live.ui.auth.*
 import javax.inject.Inject
 
-open class HuddleBaseActivity : DaggerAppCompatActivity() {
+open class HuddleBaseActivity : AppCompatActivity() {
 
 
     @Inject

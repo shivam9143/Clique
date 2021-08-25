@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import yoda.huddl.live.SessionManager
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(sessionManager: SessionManager) : ViewModel() {
+class MainViewModel : ViewModel() {
 
     private val TAG = "AuthViewModel"
 

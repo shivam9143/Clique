@@ -7,10 +7,10 @@ import dagger.multibindings.IntoMap
 import yoda.huddl.live.di.ViewModelKey
 import yoda.huddl.live.ui.main.MainViewModel
 
-@Module
+//@Module
 abstract class MainViewModelModule {
-    @Binds
-    @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    abstract fun mainViewModel(viewModel: MainViewModel): ViewModel
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(MainViewModel::class)
+//    abstract fun mainViewModel(viewModel: MainViewModel): ViewModel
 }

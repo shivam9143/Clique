@@ -5,7 +5,7 @@ import dagger.Module
 import yoda.huddl.live.ui.auth.AuthRepository
 
 
-@Module
+//@Module
 abstract class AuthRepositoryModule {
 //    @Binds
 //    abstract fun provideAuthRepositoryImpl(authRepository: AuthRepository): AuthRepository

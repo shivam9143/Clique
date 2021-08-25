@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.R
 import yoda.huddl.live.databinding.FragmentCreateProfileBinding
 import yoda.huddl.live.ui.auth.authListener.AuthenticationListener
@@ -17,6 +20,7 @@ import javax.inject.Inject
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+@AndroidEntryPoint
 class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
 
     private var param1: String? = null
@@ -26,6 +30,9 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
     lateinit var fragmentCreateProfileBinding: FragmentCreateProfileBinding
 
     lateinit var authenticationDialog: AuthenticationDialog
+
+    private val createprofileVm: CreateProfileVM by viewModels()
+
 
 //    @Inject
 //    lateinit var authViewModel: AuthViewModel
@@ -96,7 +103,7 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
             return;
 //        appPreferences.putString(AppPreferences.TOKEN, auth_token);
         this.code = code;
-        (activity as AuthActivity).authViewModel.getIgAuthToken(code).observe(viewLifecycleOwner, Observer {
+        createprofileVm.getIgAuthToken(code).observe(viewLifecycleOwner, Observer {
             Toast.makeText(context, it.access_token, Toast.LENGTH_SHORT).show()
         })
     }

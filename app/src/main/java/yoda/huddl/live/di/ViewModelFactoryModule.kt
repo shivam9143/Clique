@@ -6,8 +6,8 @@ import dagger.Module
 import yoda.huddl.live.ViewModelFactory
 
 
-@Module
+//@Module
 abstract class ViewModelFactoryModule {
-    @Binds
-    abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
+//    @Binds
+//    abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
 }

@@ -6,8 +6,8 @@ import yoda.huddl.live.di.auth.AuthScope
 import yoda.huddl.live.ui.auth.AuthActivity
 
 
-@AuthScope
-@Component(dependencies = [AppComponent::class], modules = [AuthModule::class])
+//@AuthScope
+//@Component(dependencies = [AppComponent::class], modules = [AuthModule::class])
 interface ActivityComponent {
 //    fun inject(authActivity: AuthActivity)
 }

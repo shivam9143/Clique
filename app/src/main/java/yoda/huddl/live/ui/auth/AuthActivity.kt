@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -14,12 +15,13 @@ import com.facebook.CallbackManager
 import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthProvider
+import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.*
 import yoda.huddl.live.databinding.ActivityAuthBinding
 import yoda.huddl.live.di.Injector
 import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 
     private val TAG = "AuthActivity"
@@ -38,6 +40,9 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
     // [END declare_auth]
 
     lateinit var binding: ActivityAuthBinding
+
+//    val authViewModel: AuthViewModel by viewModels()
+
 
     // [END declare_auth]
     private var mVerificationInProgress = false
@@ -59,10 +64,10 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
     private lateinit var mResendButton: Button
     private lateinit var mSignOutButton: Button
 
-    @Inject
-    lateinit var daggerViewModelFactory: DaggerViewModelFactory<AuthViewModel>
+//    @Inject
+//    lateinit var daggerViewModelFactory: DaggerViewModelFactory<AuthViewModel>
 
-    lateinit var authViewModel: AuthViewModel
+//    lateinit var authViewModel: AuthViewModel
 
     lateinit var facebookCallbackManager: CallbackManager
 
@@ -89,10 +94,9 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
-        Injector.appComponent.inject(this)
         val view = binding.root
         setContentView(view)
-        initViewModel()
+//        initViewModel()
         initNav()
 //        getActivityComponent()?.inject(this)
         if (savedInstanceState != null) {
@@ -225,9 +229,12 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
         TODO("Not yet implemented")
     }
 
-    private fun initViewModel() {
-        authViewModel = ViewModelProvider(this, daggerViewModelFactory)[AuthViewModel::class.java]
-    }
+//    private fun initViewModel() {
+//        authViewModel = ViewModelProvider(this)[
+//
+//
+//                ::class.java]
+//    }
 
 //
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

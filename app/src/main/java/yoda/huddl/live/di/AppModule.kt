@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import yoda.huddl.live.AppUtils.SignInTokenManager
 import yoda.huddl.live.Constants.HuddlConstants.SHARED_PREFS_FILE_NAME
@@ -19,12 +22,13 @@ import javax.inject.Singleton
 
 
 @Module
-class AppModule(application: HuddlApplication) {
+@InstallIn(SingletonComponent::class)
+object AppModule {
 
     @Singleton
     @Provides
-    fun provideSharedPreferences(application : HuddlApplication): SharedPreferences {
-        return application.getSharedPreferences(
+    fun provideSharedPreferences(@ApplicationContext context : Context): SharedPreferences {
+        return context.getSharedPreferences(
             SHARED_PREFS_FILE_NAME, Context.MODE_PRIVATE
         )
     }
@@ -54,10 +58,10 @@ class AppModule(application: HuddlApplication) {
         return retrofit.create(InstagramAPi::class.java)
     }
 
-    @Provides
-    fun provideAuthApiService(authApi: AuthApi, instagramAPi: InstagramAPi): AuthApiHelper {
-        return AuthApiHelper(authApi, instagramAPi)
-    }
+//    @Provides
+//    fun provideAuthApiService(authApi: AuthApi, instagramAPi: InstagramAPi): AuthApiHelper {
+//        return AuthApiHelper(authApi, instagramAPi)
+//    }
 
     @Provides
     fun provideAuthApi(retrofit: Retrofit): AuthApi {

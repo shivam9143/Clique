@@ -1,19 +1,22 @@
 package yoda.huddl.live.network.Instagram
 
-import androidx.lifecycle.LiveData
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 import retrofit2.http.Path
 import yoda.huddl.live.Constants.HuddlConstants
 import yoda.huddl.live.models.IGAuthTokenRes
 
 interface InstagramAPi {
-    @POST
+
+    @FormUrlEncoded
+    @POST("oauth/access_token/")
     suspend fun getAuthIgAuthToken(
-        @Path("client_id") client_id: String = HuddlConstants.IG_CLIENT_ID,
-        @Path("client_secret") client_secret: String = HuddlConstants.IG_APP_SEC_KEY,
-        @Path("code") code: String,
-        @Path("grant_type") grant_type: String = "authorization_code",
-        @Path("redirect_uri") redirect_uri: String = "https://httpstat.us/200"
+        @Field("client_id") client_id: String = HuddlConstants.IG_CLIENT_ID,
+        @Field("client_secret") client_secret: String = HuddlConstants.IG_APP_SEC_KEY,
+        @Field("code") code: String,
+        @Field("grant_type") grant_type: String = "authorization_code",
+        @Field("redirect_uri") redirect_uri: String = "https://httpstat.us/200"
     ) : IGAuthTokenRes
 
 }

@@ -15,9 +15,6 @@ import javax.inject.Inject
 
 class MainActivity : HuddleBaseActivity() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-
     lateinit var binding : ActivityMainBinding
 
     lateinit var appBarConfiguration: AppBarConfiguration

@@ -3,16 +3,11 @@ package yoda.huddl.live.ui.auth
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import androidx.lifecycle.viewModelScope
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.multibindings.IntKey
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AuthViewModel @Inject constructor(val authRepository: AuthRepository)   : ViewModel() {
+class CreateProfileVM @Inject constructor(val authRepository: AuthRepository)   : ViewModel() {
 
     private val TAG = "AuthViewModel"
 
@@ -35,7 +30,7 @@ class AuthViewModel @Inject constructor(val authRepository: AuthRepository)   : 
         //authenticate user with auth token and then save token in SessionManager
     }
 
-     fun getIgAuthToken(code: String) = liveData {
+    fun getIgAuthToken(code: String) = liveData {
         emit( authRepository.getIGAuthToken(
             code = code
         ))
