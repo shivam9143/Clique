@@ -1,11 +1,9 @@
 package yoda.huddl.live.network.Instagram
 
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 import yoda.huddl.live.Constants.HuddlConstants
 import yoda.huddl.live.models.IGAuthTokenRes
+import yoda.huddl.live.models.IgUserProfile
 
 interface InstagramAPi {
 
@@ -18,5 +16,6 @@ interface InstagramAPi {
         @Field("grant_type") grant_type: String = "authorization_code",
         @Field("redirect_uri") redirect_uri: String = "https://httpstat.us/200"
     ) : IGAuthTokenRes
+
 
 }

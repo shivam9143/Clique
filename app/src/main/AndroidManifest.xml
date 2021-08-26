@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Huddl">
-        <activity android:name=".ui.main.MainActivity"></activity>
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name=".ui.main.MainActivity"
+            android:theme="@style/Base.Theme.DarkActionBar"></activity>
+        <activity android:name=".ui.splash.SplashActivity"
+            android:theme="@style/Base.Theme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +24,7 @@
         </activity>
 
         <activity android:name=".ui.auth.AuthActivity"
-            android:theme="@style/Huddl.Auth"/>
+            android:theme="@style/Base.Theme.NoActionBar"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>

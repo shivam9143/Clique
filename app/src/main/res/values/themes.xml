@@ -3,31 +3,65 @@
 
     <!--Material color attributes (light theme) -->
 
-    <style name="Base.Theme" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
+    <style name="Huddl.Theme.DarkActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
 
-    <style name="Huddl.Auth" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="Huddl.Theme.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
 
+    <style name="Huddl.Auth" parent="Base.Theme.App" />
 
-    <style name="Base.Theme.App" parent="Base.Theme">
+    <style name="Base.Theme.NoActionBar" parent="Huddl.Theme.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item> <!--toolbar color-->
         <item name="colorPrimaryDark">@color/primaryDarkColor</item> <!--status bar color-->
         <item name="colorPrimaryVariant">@color/primaryDarkColor</item> <!--status bar color-->
         <item name="colorSecondary">@color/secondaryColor</item> <!--fab icon color-->
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item> <!--use sparingly-->
 
-        <item name="colorSurface">@color/white_50</item>
+        <item name="colorSurface">@color/card_gradient_start_color</item>
         <item name="colorError">@color/red_600</item>
-
+        <!---->
         <item name="android:colorBackground">@color/black_dark_base</item>
-
+        <!---->
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
-
+        <!---->
         <item name="colorOnPrimary">@color/white_50</item>
         <item name="colorOnSecondary">@color/white_50</item>
         <item name="colorOnBackground">@color/white_50</item>
         <item name="colorOnSurface">@color/white_50</item>
         <item name="colorOnError">@color/white_50</item>
+        <item name="android:textColorHint">@color/white_50</item>
+
+        <!-- Apply themes to views globally -->
+
+        <!--        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item> &lt;!&ndash; this applies a default theme for all alert dialogs &ndash;&gt;-->
+        <!--        <item name="bottomSheetDialogTheme">@style/App.Theme.BottomSheet</item> &lt;!&ndash; this applies a default theme for all bottom sheets  &ndash;&gt;-->
+        <!--        <item name="toolbarStyle">@style/ToolbarAppearance</item> &lt;!&ndash; this applies a default theme for all toolbars &ndash;&gt;-->
+        <!--        <item name="tabStyle">@style/App.Theme.TabLayout</item> &lt;!&ndash; this applies a default theme for all tab-layouts &ndash;&gt;-->
+        <item name="materialCardViewStyle">@style/App.Theme.MaterialCardView</item> <!-- this applies a default theme for all material card view-->
+        <!--        <item name="materialButtonStyle">@style/App.Theme.Button</item> &lt;!&ndash; this applies a default theme for all material buttons &ndash;&gt;-->
+    </style>
+
+    <style name="Base.Theme.DarkActionBar" parent="Huddl.Theme.DarkActionBar">
+        <item name="colorPrimary">@color/primaryColor</item> <!--toolbar color-->
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item> <!--status bar color-->
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item> <!--status bar color-->
+        <item name="colorSecondary">@color/secondaryColor</item> <!--fab icon color-->
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item> <!--use sparingly-->
+
+        <item name="colorSurface">@color/card_gradient_start_color</item>
+        <item name="colorError">@color/red_600</item>
+<!---->
+        <item name="android:colorBackground">@color/black_dark_base</item>
+<!---->
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+<!---->
+        <item name="colorOnPrimary">@color/white_50</item>
+        <item name="colorOnSecondary">@color/white_50</item>
+        <item name="colorOnBackground">@color/white_50</item>
+        <item name="colorOnSurface">@color/white_50</item>
+        <item name="colorOnError">@color/white_50</item>
+        <item name="android:textColorHint">@color/white_50</item>
 
         <!-- Apply themes to views globally -->
 
@@ -35,7 +69,7 @@
 <!--        <item name="bottomSheetDialogTheme">@style/App.Theme.BottomSheet</item> &lt;!&ndash; this applies a default theme for all bottom sheets  &ndash;&gt;-->
 <!--        <item name="toolbarStyle">@style/ToolbarAppearance</item> &lt;!&ndash; this applies a default theme for all toolbars &ndash;&gt;-->
 <!--        <item name="tabStyle">@style/App.Theme.TabLayout</item> &lt;!&ndash; this applies a default theme for all tab-layouts &ndash;&gt;-->
-<!--        <item name="materialCardViewStyle">@style/App.Theme.MaterialCardView</item> &lt;!&ndash; this applies a default theme for all material card view&ndash;&gt;-->
+        <item name="materialCardViewStyle">@style/App.Theme.MaterialCardView</item> <!-- this applies a default theme for all material card view-->
 <!--        <item name="materialButtonStyle">@style/App.Theme.Button</item> &lt;!&ndash; this applies a default theme for all material buttons &ndash;&gt;-->
     </style>
 

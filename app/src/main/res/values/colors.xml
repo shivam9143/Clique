@@ -5,11 +5,13 @@
     <color name="primaryColor">@color/black_dark_base</color>
     <color name="primaryLightColor">#ffffff</color>
     <color name="primaryDarkColor">#000000</color>
-    <color name="secondaryColor">#d81b60</color>
+    <color name="secondaryColor">#EA2323</color>
     <color name="secondaryLightColor">#ff5c8d</color>
     <color name="secondaryDarkColor">#a00037</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#ffffff</color>
+    <color name="colorOnPrimary">#ffffff</color>
+    <color name="colorOnSurface">#ffffff</color>
 
     <!--Other colors-->
     <color name="red_200">#cf6679</color>
@@ -21,4 +23,15 @@
 
     <color name="black_800">#121212</color>
     <color name="black_900">#000000</color>
+
+<!--   Button Gradient -->
+    <color name="btn_gradient_start_color">#FE4E4E</color>
+    <color name="btn_gradient_end_color">#E81E1E</color>
+<!--  ! Button Gradient  -->
+
+<!--   Card Gradient -->
+    <color name="card_gradient_start_color">#4C4D52</color>
+    <color name="card_gradient_end_color">#B2B2B2</color>
+<!--  ! Button Gradient  -->
+
 </resources>

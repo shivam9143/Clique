@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -18,8 +17,6 @@ import com.google.firebase.auth.PhoneAuthProvider
 import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.*
 import yoda.huddl.live.databinding.ActivityAuthBinding
-import yoda.huddl.live.di.Injector
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
@@ -41,7 +38,7 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 
     lateinit var binding: ActivityAuthBinding
 
-//    val authViewModel: AuthViewModel by viewModels()
+    val authViewModel: AuthViewModel by viewModels()
 
 
     // [END declare_auth]

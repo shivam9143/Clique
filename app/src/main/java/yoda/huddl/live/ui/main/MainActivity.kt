@@ -6,13 +6,12 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.HuddleBaseActivity
 import yoda.huddl.live.R
-import yoda.huddl.live.ViewModelFactory
 import yoda.huddl.live.databinding.ActivityMainBinding
-import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class MainActivity : HuddleBaseActivity() {
 
     lateinit var binding : ActivityMainBinding

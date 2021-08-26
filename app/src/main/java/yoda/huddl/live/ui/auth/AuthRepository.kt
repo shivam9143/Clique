@@ -14,5 +14,8 @@ class AuthRepository @Inject constructor(val authApiHelper: AuthApiHelper) : Hud
     suspend fun getIGAuthToken(code : String) =
         authApiHelper.getInstaAuthToken(code)
 
+    suspend fun getIgUserProfile(token : String) =
+        authApiHelper.getIgUserProfile(token)
+
 
 }

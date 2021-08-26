@@ -3,18 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/auth_nav_graph"
-    app:startDestination="@id/createProfile">
+    app:startDestination="@id/mobileNumberFrag">
 
     <fragment
         android:id="@+id/mobileNumberFrag"
         android:name="yoda.huddl.live.ui.auth.MobileNumberFrag"
         android:label="fragment_mobile_number"
-        tools:layout="@layout/fragment_mobile_number" />
+        tools:layout="@layout/fragment_mobile_number" >
+        <action
+            android:id="@+id/action_mobileNumberFrag_to_otpVerification"
+            app:destination="@id/otpVerification" />
+    </fragment>
     <fragment
         android:id="@+id/otpVerification"
         android:name="yoda.huddl.live.ui.auth.OtpVerification"
         android:label="fragment_otp_verification"
-        tools:layout="@layout/fragment_otp_verification" />
+        tools:layout="@layout/fragment_otp_verification" >
+        <action
+            android:id="@+id/action_otpVerification_to_createProfile"
+            app:destination="@id/createProfile" />
+    </fragment>
     <fragment
         android:id="@+id/createProfile"
         android:name="yoda.huddl.live.ui.auth.CreateProfile"

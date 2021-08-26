@@ -3,5 +3,7 @@
     <string name="app_name">Huddl</string>
     <string translatable="true" name="huddl">Huddl</string>
     <string name="huddl_tagline" translatable="true">Monitize your influence and engage with your fans!</string>
-
+    <string name="get_otp">GET OTP</string>
+    <string name="otp_sent_to">OTP sent to : %s</string>
+    <string name="resend_otp_in">Resend OTP : %s</string>
 </resources>

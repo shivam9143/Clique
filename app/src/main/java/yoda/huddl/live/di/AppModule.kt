@@ -11,6 +11,7 @@ import retrofit2.Retrofit
 import yoda.huddl.live.AppUtils.SignInTokenManager
 import yoda.huddl.live.Constants.HuddlConstants.SHARED_PREFS_FILE_NAME
 import yoda.huddl.live.HuddlApplication
+import yoda.huddl.live.network.Instagram.IgGraphApi
 import yoda.huddl.live.network.Instagram.InstagramAPi
 import yoda.huddl.live.network.auth.AuthApi
 import yoda.huddl.live.network.auth.AuthApiHelper
@@ -56,6 +57,12 @@ object AppModule {
     @Singleton
     fun provideIGApi(@Named("ig") retrofit: Retrofit): InstagramAPi {
         return retrofit.create(InstagramAPi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideIGGraphApi(@Named("ig-graph") retrofit: Retrofit): IgGraphApi {
+        return retrofit.create(IgGraphApi::class.java)
     }
 
 //    @Provides

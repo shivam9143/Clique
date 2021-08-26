@@ -36,4 +36,8 @@ class CreateProfileVM @Inject constructor(val authRepository: AuthRepository)   
         ))
     }
 
+    fun getIgUserProfile(token: String) = liveData {
+        emit( authRepository.getIgUserProfile(token))
+    }
+
 }

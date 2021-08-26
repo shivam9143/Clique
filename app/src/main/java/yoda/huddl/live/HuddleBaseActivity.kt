@@ -30,7 +30,7 @@ open class HuddleBaseActivity : AppCompatActivity() {
                 is AuthStateLoading -> {
 
                 }
-                is AuthStateAuthenticated -> {
+                is AuthStatePhoneAuthenticated -> {
 
                 }
                 is AuthStateError -> {

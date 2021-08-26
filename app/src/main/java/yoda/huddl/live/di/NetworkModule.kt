@@ -42,6 +42,17 @@ object NetworkModule {
             .build()
     }
 
+    @Named("ig-graph")
+    @Singleton
+    @Provides
+    fun provideIGGraphRetrofitInstance(client: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(HuddlConstants.IG_GRAPH_BASE_URL)
+            .addConverterFactory(provideGsonConvertorFactory())
+            .client(client)
+            .build()
+    }
+
     @Singleton
     @Provides
     fun provideGsonConvertorFactory(): GsonConverterFactory {

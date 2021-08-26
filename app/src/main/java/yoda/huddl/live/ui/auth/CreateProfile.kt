@@ -31,7 +31,7 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
 
     lateinit var authenticationDialog: AuthenticationDialog
 
-    private val createprofileVm: CreateProfileVM by viewModels()
+//    private val authViewModel = (activity as AuthActivity).authViewModel
 
 
 //    @Inject
@@ -56,7 +56,6 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
         }
         return binding.root
     }
-
 
 
     companion object {
@@ -103,8 +102,21 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
             return;
 //        appPreferences.putString(AppPreferences.TOKEN, auth_token);
         this.code = code;
-        createprofileVm.getIgAuthToken(code).observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context, it.access_token, Toast.LENGTH_SHORT).show()
+        getIgAuthToken(code)
+
+    }
+
+    private fun getIgAuthToken(authCode: String) {
+        (activity as AuthActivity).authViewModel.getIgAuthToken(
+            authCode
+        ).observe(viewLifecycleOwner, Observer {
+            getIgUserProfile(it.access_token)
+        })
+    }
+
+    private fun getIgUserProfile(access_token: String) {
+        (activity as AuthActivity).authViewModel.getIgUserProfile(access_token).observe(viewLifecycleOwner, Observer {
+            Toast.makeText(context, it.username, Toast.LENGTH_SHORT).show()
         })
     }
 

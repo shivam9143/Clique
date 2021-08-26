@@ -9,8 +9,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.R
 import yoda.huddl.live.AppUtils.SignInTokenManager
 import yoda.huddl.live.Constants.HuddlConstants.SPLASH_TIME_OUT
-import yoda.huddl.live.ViewModelFactory
-import yoda.huddl.live.ViewModelProviderFactory
 import yoda.huddl.live.ui.auth.AuthActivity
 import javax.inject.Inject
 

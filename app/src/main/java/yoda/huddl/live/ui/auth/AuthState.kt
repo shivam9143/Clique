@@ -5,7 +5,8 @@ import yoda.huddl.live.models.User
 
 sealed class AuthState
 object AuthStateIdle : AuthState()
-class AuthStateAuthenticated(val data: User) : AuthState()
+class AuthStatePhoneAuthenticated(val data: User) : AuthState()
+class AuthStateInstagramAuthenticated(val data: User) : AuthState()
 class AuthStateError(val errorMsg: String? = null) : AuthState()
 object AuthStateLoading : AuthState()
 object AuthStateNotAuthenticated : AuthState()

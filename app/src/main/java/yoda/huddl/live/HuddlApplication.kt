@@ -6,8 +6,6 @@ import androidx.multidex.MultiDex
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.google.firebase.FirebaseApp
 import dagger.hilt.android.HiltAndroidApp
-import yoda.huddl.live.di.Injector
-import javax.inject.Inject
 
 @HiltAndroidApp
 class HuddlApplication : Application() {
@@ -26,7 +24,6 @@ class HuddlApplication : Application() {
         context = this
         initializeFresco()
         initFirebase()
-        Injector.init(this)
     }
 
     private fun initFirebase() {

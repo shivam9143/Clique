@@ -71,4 +71,8 @@
     <string name="email_fmt">Email: %s</string>
     <string name="get_started_title">Get started using mobile number</string>
     <string name="connect_to_instagram">Connect to Instagram</string>
+    <string name="get_otp">GET OTP</string>
+    <string name="verify_number">Verify Number</string>
+    <string name="otp_sent_to">OTP sent to : %s</string>
+    <string name="resend_otp_in">Resend OTP : %s</string>
 </resources>

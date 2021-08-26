@@ -46,13 +46,26 @@
         <item name="font">@font/work_sans</item>
     </style>
 
-    <style name="MaterialCardView.Rounded" parent="App.Theme.MaterialCardView">
-        <item name="shapeAppearance">@style/ShapeAppearance.Rounded.Corners</item>
+    <style name="Body.14.Huddl" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="font">@font/work_sans</item>
     </style>
 
-    <style name="ShapeAppearance.Rounded.Corners" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/hard_corner_cuts</item>
+    <style name="Body.14.Sec.Huddl" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/secondaryColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="font">@font/work_sans</item>
+    </style>
+
+    <style name="Body.16.Huddl" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="font">@font/work_sans</item>
+    </style>
+
+    <style name="MaterialCardView.Rounded" parent="App.Theme.MaterialCardView">
+        <item name="shapeAppearance">@style/ShapeAppearance.Rounded.Corners</item>
     </style>
 
     <style name="App.Theme.MaterialCardView" parent="Widget.MaterialComponents.CardView">
@@ -61,7 +74,76 @@
         <item name="cardUseCompatPadding">true</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
+        <item name="background">@drawable/card_gradient_bg</item>
         <item name="android:textColor">@color/primaryTextColor</item>
     </style>
+
+
+<!--   TextView Styles -->
+
+    <style name="App.Theme.Text.Title.SP" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textSize">34sp</item>
+    </style>
+
+
+    <!-- Button styles -->
+
+    <style name="App.Theme.Button" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="backgroundTint">?colorSecondary</item>
+    </style>
+
+    <style name="App.Theme.Button.Red" parent="App.Theme.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Rounded.All.Light</item>
+        <item name="android:padding">12dp</item>
+        <item name="background">@drawable/gradient_button_bg</item>
+        <item name="android:textColor">@drawable/button_text</item>
+    </style>
+
+<!--    Button Styles Ends -->
+
+
+<!--    Shapes -->
+
+    <style name="ShapeAppearance.Cut.Corners" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">@dimen/hard_corner_cuts</item>
+    </style>
+
+    <style name="ShapeAppearance.Partial.Cut.Corners" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerSizeTopLeft">@dimen/hard_corner_cuts</item>
+        <item name="cornerSizeBottomRight">@dimen/hard_corner_cuts</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded.Corners" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/hard_corner_cuts</item>
+    </style>
+
+    <style name="ShapeAppearance.Partial.Rounded.Corners" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/hard_corner_cuts</item>
+        <item name="cornerSizeBottomRight">@dimen/hard_corner_cuts</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded.Tops" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/hard_corner_cuts</item>
+        <item name="cornerSizeTopRight">@dimen/hard_corner_cuts</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded.All.Light" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/light_corner_cuts</item>
+    </style>
+
+    <!-- Shapes -->
+
 
 </resources>
