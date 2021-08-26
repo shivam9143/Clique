@@ -69,6 +69,8 @@ dependencies {
     def retrofitVersion = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.0'
+
 
     // ViewModel and LiveData
     def lifecycle_version = '2.2.0'
@@ -136,7 +138,7 @@ dependencies {
     implementation "androidx.navigation:navigation-runtime-ktx:$nav_version"
 
     //Country code picker lib
-//    implementation 'com.hbb20:ccp:X.Y.Z'
+    implementation 'com.hbb20:ccp:2.4.7'
 
     // Otp verificiaction ui
     implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx' // kotlin

@@ -6,4 +6,11 @@
     <string name="get_otp">GET OTP</string>
     <string name="otp_sent_to">OTP sent to : %s</string>
     <string name="resend_otp_in">Resend OTP : %s</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="basic_details">Basic Details</string>
+    <string name="what_s_your_name">What’s your name?</string>
+    <string name="bio">Bio</string>
+    <string name="short_bio_here">Short bio here</string>
+    <string name="category">Category</string>
 </resources>

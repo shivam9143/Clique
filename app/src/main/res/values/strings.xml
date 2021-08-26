@@ -32,7 +32,7 @@
     <string name="signed_in">Signed In</string>
     <string name="signed_out">Signed Out</string>
     <string name="token_null">Token: null</string>
-    <string name="hint_email">Email</string>
+    <string name="hint_email">abc@gmail.com</string>
     <string name="hint_password">Password</string>
     <string name="desc_firebase_lockup">Firebase logo and name</string>
     <string name="auth_failed">Authentication failed</string>
@@ -75,4 +75,16 @@
     <string name="verify_number">Verify Number</string>
     <string name="otp_sent_to">OTP sent to : %s</string>
     <string name="resend_otp_in">Resend OTP : %s</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="basic_details">Basic Details</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="what_s_your_name">What’s your name?</string>
+    <string name="bio">Bio</string>
+    <string name="short_bio_here">Short bio here</string>
+    <string name="category">Category</string>
+    <string name="select_cat">Select category</string>
+    <string name="email">Email</string>
+    <string name="hint_phone">+91 - 9988 8877 32</string>
+    <string name="mobile_number">Mobile number</string>
 </resources>

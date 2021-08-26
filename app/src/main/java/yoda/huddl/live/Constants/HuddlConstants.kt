@@ -1,7 +1,7 @@
 package yoda.huddl.live.Constants
 
 object HuddlConstants {
-    val BASE_URL = "https://api.giphy.com"
+    val BASE_URL = "https://dev.huddl.live/api/v1/"
     val IG_BASE_URL = "https://api.instagram.com/"
     val IG_GRAPH_BASE_URL = "https://graph.instagram.com/"
     val SHARED_PREFS_FILE_NAME = "app.yoda.huddl.live"

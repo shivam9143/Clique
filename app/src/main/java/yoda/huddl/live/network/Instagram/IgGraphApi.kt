@@ -1,6 +1,8 @@
 package yoda.huddl.live.network.Instagram
 
 import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 import yoda.huddl.live.models.IgUserProfile
 

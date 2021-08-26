@@ -1,5 +1,6 @@
 package yoda.huddl.live.network.auth
 
+import yoda.huddl.live.models.TokenReqBody
 import yoda.huddl.live.network.Instagram.IgGraphApi
 import yoda.huddl.live.network.Instagram.InstagramAPi
 import javax.inject.Inject
@@ -14,5 +15,8 @@ class AuthApiHelper @Inject constructor(val authApi: AuthApi, val instagramAPi: 
 
     suspend fun getIgUserProfile(token: String) =
         igGraphApi.getIgUserProfile(access_token = token)
+
+    suspend fun authenticateUser(token : String) =
+        authApi.authenicateUser(TokenReqBody(token))
 
 }

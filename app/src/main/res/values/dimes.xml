@@ -2,6 +2,9 @@
 <resources>
     <dimen name="app_layout_margin">10dp</dimen>
     <dimen name="app_layout_margin_top">10dp</dimen>
+    <dimen name="app_layout_margin_top_20">20dp</dimen>
+    <dimen name="app_layout_margin_50">50dp</dimen>
+    <dimen name="app_layout_margin_40">40dp</dimen>
 
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="standard_margin">16dp</dimen>

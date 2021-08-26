@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import yoda.huddl.live.AppUtils.HuddlInterceptor
@@ -26,8 +27,8 @@ object NetworkModule {
     fun provideRetrofitInstance(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(HuddlConstants.BASE_URL)
-            .addConverterFactory(provideGsonConvertorFactory())
             .client(client)
+            .addConverterFactory(provideGsonConvertorFactory())
             .build()
     }
 
@@ -64,6 +65,7 @@ object NetworkModule {
     fun provideRetrofitClient(huddlInterceptor: HuddlInterceptor): OkHttpClient {
         return OkHttpClient().newBuilder()
             .addInterceptor(huddlInterceptor)
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(HuddlConstants.timeOut, TimeUnit.SECONDS)
             .readTimeout(HuddlConstants.timeOut, TimeUnit.SECONDS)
             .writeTimeout(HuddlConstants.timeOut, TimeUnit.SECONDS)

@@ -17,7 +17,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/huddlTagLineDesc"
         style="@style/SubTitle.Huddl"
@@ -29,7 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/huddlTitleTv" />
-
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mobileInputCV"
@@ -59,19 +57,49 @@
                 android:text="@string/get_started_title"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
-            <com.google.android.material.textfield.TextInputEditText
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorOnSurface"
-                android:alpha="0.6"
-                android:inputType="phone"
-                android:layout_marginStart="@dimen/standard_margin"
-                android:layout_marginLeft="@dimen/standard_margin"
-                android:layout_marginRight="@dimen/standard_margin"
-                android:layout_marginEnd="@dimen/standard_margin"
-                android:layout_marginTop="@dimen/app_layout_margin_top"
-                android:hint="0000000000"
-                />
+                android:layout_marginTop="@dimen/app_layout_margin_top_20"
+                android:id="@+id/phone"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/countryCodePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:ccp_defaultNameCode="US"
+                    app:ccp_textSize="14sp"
+                    app:ccp_defaultLanguage="ENGLISH"
+                    app:ccp_arrowColor="@color/secondaryColor"
+                    app:ccp_showFlag="false"
+                    app:ccp_contentColor="@color/colorOnSurface"
+                    android:alpha=".6"
+                    app:ccpDialog_textColor="@color/colorOnSurface"
+                    />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobileNoInput"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    style="@style/Body.14.Sec.Huddl"
+                    app:layout_constraintLeft_toRightOf="@id/countryCodePicker"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/colorOnSurface"
+                    android:alpha="0.6"
+                    android:inputType="phone"
+                    android:hint="0000000000"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_submit"

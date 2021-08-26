@@ -11,10 +11,10 @@ class HuddlInterceptor(var signInTokenManager: SignInTokenManager) : Interceptor
         val response : Response
         response = if (signInTokenManager.isSignedin()) {
             val token = signInTokenManager.token
-            val headerVal = "Token ${token}"
+            val headerVal = "Bearer ${token}"
             val request = original.newBuilder()
                 .header("Authorization", headerVal)
-                .method(original.method(), original.body())
+                .method(original.method, original.body)
                 .build()
             chain.proceed(request)
         } else

@@ -2,9 +2,13 @@ package yoda.huddl.live.network.auth
 
 
 import androidx.lifecycle.LiveData
+import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.Path
 import yoda.huddl.live.models.IGAuthTokenRes
+import yoda.huddl.live.models.IgUserProfile
+import yoda.huddl.live.models.TokenReqBody
+import yoda.huddl.live.models.UserAuthToken
 
 
 interface AuthApi {
@@ -14,13 +18,10 @@ interface AuthApi {
 //        @Path("id") id: Int
 //    ): Flowable<com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion.User?>?
 
-    @POST
-    suspend fun getAuthIgAuthToken(
-        @Path("client_id") client_id: String,
-        @Path("client_secret") client_secret: String,
-        @Path("code") code: String,
-        @Path("grant_type") grant_type: String = "authorization_code",
-        @Path("redirect_uri") redirect_uri: String = "https://httpstat.us/200"
-    ) : LiveData<IGAuthTokenRes>
+
+    @POST("auth/phone/")
+    suspend fun authenicateUser(
+        @Body token: TokenReqBody
+    ) : UserAuthToken
 
 }

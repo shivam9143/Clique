@@ -52,6 +52,12 @@
         <item name="font">@font/work_sans</item>
     </style>
 
+    <style name="MainTitle.16.Huddl" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="font">@font/work_sans_extrabold</item>
+    </style>
+
     <style name="Body.14.Sec.Huddl" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">@color/secondaryColor</item>
         <item name="android:textSize">14sp</item>

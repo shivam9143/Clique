@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
+import kotlinx.android.synthetic.main.fragment_mobile_number.*
 import yoda.huddl.live.databinding.FragmentMobileNumberBinding
 import java.util.concurrent.TimeUnit
 
@@ -29,6 +30,7 @@ class MobileNumberFrag : Fragment(), View.OnClickListener {
         arguments?.let {
 
         }
+
     }
 
     override fun onCreateView(
@@ -36,11 +38,14 @@ class MobileNumberFrag : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMobileNumberBinding.inflate(layoutInflater)
+        init()
         return binding.root
     }
 
+
     private fun init() {
         mAuth = FirebaseAuth.getInstance()
+        binding.btnSubmit.setOnClickListener(this)
 
         mCallbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
@@ -170,7 +175,25 @@ class MobileNumberFrag : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            binding.btnSubmit.id -> {
+                binding.mobileNoInput?.text.toString()?.let {
+                    if (it.isNotEmpty()) {
+                            var mobNo = StringBuffer()
+                        mobNo.append(countryCodePicker.selectedCountryCodeWithPlus)
+                        mobNo.append(it)
+                        (activity as AuthActivity).clickOnSendOtpBtn("91",mobNo = mobNo.toString()) {
+                            if (it) {
 
+                            } else {
+                                binding.mobileNoInput.error = "Please enter valid mobile number"
+                            }
+                        }
+                    } else {
+                        binding.mobileNoInput.error = "Please enter valid mobile number"
+                    }
+                }
+            }
         }
     }
+
 }

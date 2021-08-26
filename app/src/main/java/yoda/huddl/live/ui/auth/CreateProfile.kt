@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
@@ -45,18 +46,22 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
         }
     }
 
+    fun setListToCategoryMenu() {
+        val items = listOf("Chennai", "Delhi", "Mumbai", "Pune")
+        val adapter = context?.let { ArrayAdapter(it, R.layout.dropdown_menu_list_item, items) }
+        fragmentCreateProfileBinding.selcatTv.setAdapter(adapter)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentCreateProfileBinding.inflate(inflater, container, false)
         fragmentCreateProfileBinding = binding
-        fragmentCreateProfileBinding.connectToInstaTv.setOnClickListener {
-            createInstaAuthenticationDialog()
-        }
+        setListToCategoryMenu()
+        fragmentCreateProfileBinding.connectToInstaTv.setOnClickListener(this)
         return binding.root
     }
-
 
     companion object {
         @JvmStatic
@@ -81,11 +86,6 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
         when (v?.id) {
             R.id.connectToInstaTv -> {
                 createInstaAuthenticationDialog()
-            }
-
-            R.id.connectToInstaTv1 -> {
-                createInstaAuthenticationDialog()
-
             }
         }
     }
@@ -115,9 +115,10 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
     }
 
     private fun getIgUserProfile(access_token: String) {
-        (activity as AuthActivity).authViewModel.getIgUserProfile(access_token).observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context, it.username, Toast.LENGTH_SHORT).show()
-        })
+        (activity as AuthActivity).authViewModel.getIgUserProfile(access_token)
+            .observe(viewLifecycleOwner, Observer {
+                Toast.makeText(context, it.username, Toast.LENGTH_SHORT).show()
+            })
     }
 
 }
