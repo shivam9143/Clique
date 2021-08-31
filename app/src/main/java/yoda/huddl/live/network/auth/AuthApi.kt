@@ -3,12 +3,10 @@ package yoda.huddl.live.network.auth
 
 import androidx.lifecycle.LiveData
 import retrofit2.http.Body
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Path
-import yoda.huddl.live.models.IGAuthTokenRes
-import yoda.huddl.live.models.IgUserProfile
-import yoda.huddl.live.models.TokenReqBody
-import yoda.huddl.live.models.UserAuthToken
+import yoda.huddl.live.models.*
 
 
 interface AuthApi {
@@ -23,5 +21,11 @@ interface AuthApi {
     suspend fun authenicateUser(
         @Body token: TokenReqBody
     ) : UserAuthToken
+
+    @PATCH("creator/profile/me/")
+    suspend fun setUserProfile(
+        @Body userProfile : CreateUserProfile
+    ) : UserProfile
+
 
 }

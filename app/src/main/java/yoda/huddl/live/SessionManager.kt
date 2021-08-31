@@ -3,6 +3,7 @@ package yoda.huddl.live
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import yoda.huddl.live.Offline.HuddlOfflineDataManager
 import yoda.huddl.live.ui.auth.AuthState
 import yoda.huddl.live.ui.auth.AuthStateError
 import yoda.huddl.live.ui.auth.AuthStateLoading
@@ -16,6 +17,8 @@ class SessionManager @Inject constructor() {
 
     var cachedUser: MediatorLiveData<AuthState> = MediatorLiveData()
 
+    var authState : MediatorLiveData<AuthState> = MediatorLiveData()
+
     fun authenticateWithId(source: LiveData<AuthState>) {
         if (cachedUser != null) {
             cachedUser.value = AuthStateLoading
@@ -28,6 +31,11 @@ class SessionManager @Inject constructor() {
                 }
             }
         }
+    }
+
+    fun getAuthState()
+    {
+//        if(HuddlOfflineDataManager.getUserPhoneAuthenticated())
     }
 
     fun logOut() {

@@ -11,6 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.multibindings.IntKey
 import kotlinx.coroutines.launch
 import yoda.huddl.live.SessionManager
+import yoda.huddl.live.models.CreateUserProfile
 import javax.inject.Inject
 
 @HiltViewModel
@@ -50,6 +51,14 @@ class AuthViewModel @Inject constructor(val authRepository: AuthRepository, val 
 
     fun authenticateUser(token : String) = liveData {
         emit(authRepository.authenticateUser(token = token))
+    }
+
+    fun getUserProfile(token : String) = liveData {
+        emit(authRepository.authenticateUser(token = token))
+    }
+
+    fun createUserProfile(userProfile : CreateUserProfile) = liveData {
+        emit(authRepository.setUserProfile(userProfile))
     }
 
 }

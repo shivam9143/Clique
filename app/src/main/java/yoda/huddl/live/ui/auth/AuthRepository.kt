@@ -1,6 +1,7 @@
 package yoda.huddl.live.ui.auth
 
 import yoda.huddl.live.HuddleBaseRepository
+import yoda.huddl.live.models.CreateUserProfile
 import yoda.huddl.live.network.auth.AuthApiHelper
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,5 +20,12 @@ class AuthRepository @Inject constructor(val authApiHelper: AuthApiHelper) : Hud
 
     suspend fun authenticateUser(token: String) =
         authApiHelper.authenticateUser(token)
+
+    suspend fun getUserProfile(token: String) =
+        authApiHelper.authenticateUser(token)
+
+    suspend fun setUserProfile(userProfile : CreateUserProfile,) =
+        authApiHelper.setUserProfile(userProfile)
+
 
 }

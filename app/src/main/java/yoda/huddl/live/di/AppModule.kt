@@ -9,15 +9,12 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import yoda.huddl.live.AppUtils.SignInTokenManager
-import yoda.huddl.live.Constants.HuddlConstants.SHARED_PREFS_FILE_NAME
-import yoda.huddl.live.HuddlApplication
+import yoda.huddl.live.Offline.HuddlOfflineDataManager
 import yoda.huddl.live.network.Instagram.IgGraphApi
 import yoda.huddl.live.network.Instagram.InstagramAPi
 import yoda.huddl.live.network.auth.AuthApi
-import yoda.huddl.live.network.auth.AuthApiHelper
 import yoda.huddl.live.network.splash.SplashApi
 import yoda.huddl.live.network.splash.SplashApiHelper
-import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -28,9 +25,10 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideSharedPreferences(@ApplicationContext context : Context): SharedPreferences {
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
         return context.getSharedPreferences(
-            SHARED_PREFS_FILE_NAME, Context.MODE_PRIVATE
+            HuddlOfflineDataManager.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE
+
         )
     }
 
@@ -39,7 +37,6 @@ object AppModule {
     fun provideTokenManger(preferences: SharedPreferences): SignInTokenManager {
         return SignInTokenManager(preferences)
     }
-
 
     @Provides
     @Singleton
@@ -74,6 +71,5 @@ object AppModule {
     fun provideAuthApi(retrofit: Retrofit): AuthApi {
         return retrofit.create(AuthApi::class.java)
     }
-
 
 }

@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.liveData
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -24,6 +25,7 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.*
+import yoda.huddl.live.Offline.HuddlOfflineDataManager
 import yoda.huddl.live.R
 import yoda.huddl.live.databinding.ActivityAuthBinding
 import java.util.concurrent.TimeUnit
@@ -111,6 +113,7 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
             supportFragmentManager.findFragmentById(R.id.authNavHostFragment) as NavHostFragment
         navController = navHostFragment.navController
         val navGraphIds = listOf(R.navigation.nav_graph_main)
+        observeAuthState()
 //        navController = Navigation.findNavController(binding.authNavHostFragment)
 //        appBarConfiguration = AppBarConfiguration(
 //            setOf(
@@ -233,6 +236,31 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 //
 //                ::class.java]
 //    }
+
+    fun observeAuthState() {
+        authViewModel.getAuthState().observe(this, Observer {
+            when (it) {
+                is AuthStateIdle -> {
+
+                }
+                is AuthStateLoading -> {
+
+                }
+                is AuthStatePhoneAuthenticated -> {
+
+                }
+                is AuthStateInstagramAuthenticated -> {
+
+                }
+                is AuthStateError -> {
+
+                }
+                is AuthStateNotAuthenticated -> {
+
+                }
+            }
+        })
+    }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -366,7 +394,7 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 //        mAuth.signOut()
 //        updateUI(STATE_INITIALIZED)
 //    }
-//
+
     private fun updateUI(uiState: Int) {
         updateUI(uiState, mAuth.currentUser, null)
     }
@@ -442,10 +470,17 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
             }// No-op, handled by sign-in check
 //                mDetailText.setText(R.string.status_sign_in_failed)
             STATE_SIGNIN_SUCCESS -> {
+                saveVerifiedMobileNum()
                 navController.navigate(R.id.createProfile)
             }
         }
     }
+
+    private fun saveVerifiedMobileNum() {
+        if(this::phoneNumber.isInitialized)
+        HuddlOfflineDataManager.setUserMobNo(mobNo = this.phoneNumber)
+    }
+
 
     private fun validatePhoneNumber(phoneNumber: String): Boolean {
 //        val phoneNumber: String = mPhoneNumberField.getText().toString()
@@ -477,6 +512,7 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
             callback(false)
             return
         }
+        this.phoneNumber = mobNo
         startPhoneNumberVerification(mobNo)
     }
 
@@ -514,7 +550,14 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
         authViewModel.authenticateUser(firebaseAuthToken).observe(this, Observer {
             it?.let {
                 Log.e(TAG, it.key)
+                HuddlOfflineDataManager.setUserAuthToken(it.key)
+                HuddlOfflineDataManager.setUserPhoneAuthenticated(true)
+                sessionManager.authenticateWithId(liveData { AuthStatePhoneAuthenticated })
             }
         })
+    }
+
+    private fun getAuthenticatedUserProfile() {
+
     }
 }
