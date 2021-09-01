@@ -191,17 +191,11 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
         ).observe(viewLifecycleOwner, Observer {
             sessionManager.authenticateWithId(liveData { AuthStateInstagramAuthenticated })
             HuddlOfflineDataManager.setUserInstaAuthenticated(true)
-            navigateUserToHuddleMain()
+            (activity as AuthActivity).navigateUserToHuddleMain()
         })
     }
 
-    private fun navigateUserToHuddleMain()
-    {
-        activity?.let {
-            startActivity(Intent(it, MainActivity::class.java))
-        }
-        (activity as AuthActivity).finish()
-    }
+
 
 
 

@@ -53,8 +53,8 @@ class AuthViewModel @Inject constructor(val authRepository: AuthRepository, val 
         emit(authRepository.authenticateUser(token = token))
     }
 
-    fun getUserProfile(token : String) = liveData {
-        emit(authRepository.authenticateUser(token = token))
+    fun getUserProfile() = liveData {
+        emit(authRepository.getUserProfile())
     }
 
     fun createUserProfile(userProfile : CreateUserProfile) = liveData {

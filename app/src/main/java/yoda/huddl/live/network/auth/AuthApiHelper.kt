@@ -6,7 +6,11 @@ import yoda.huddl.live.network.Instagram.IgGraphApi
 import yoda.huddl.live.network.Instagram.InstagramAPi
 import javax.inject.Inject
 
-class AuthApiHelper @Inject constructor(val authApi: AuthApi, val instagramAPi: InstagramAPi, val igGraphApi: IgGraphApi) {
+class AuthApiHelper @Inject constructor(
+    val authApi: AuthApi,
+    val instagramAPi: InstagramAPi,
+    val igGraphApi: IgGraphApi
+) {
 
 //    @Inject
 //    lateinit var authApi: AuthApi
@@ -17,10 +21,13 @@ class AuthApiHelper @Inject constructor(val authApi: AuthApi, val instagramAPi: 
     suspend fun getIgUserProfile(token: String) =
         igGraphApi.getIgUserProfile(access_token = token)
 
-    suspend fun authenticateUser(token : String) =
+    suspend fun authenticateUser(token: String) =
         authApi.authenicateUser(TokenReqBody(token))
 
-    suspend fun setUserProfile(userProfile : CreateUserProfile) =
+    suspend fun setUserProfile(userProfile: CreateUserProfile) =
         authApi.setUserProfile(userProfile)
+
+    suspend fun getUserProfile() =
+        authApi.getUserProfile()
 
 }

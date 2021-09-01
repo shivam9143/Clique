@@ -28,6 +28,7 @@ import yoda.huddl.live.*
 import yoda.huddl.live.Offline.HuddlOfflineDataManager
 import yoda.huddl.live.R
 import yoda.huddl.live.databinding.ActivityAuthBinding
+import yoda.huddl.live.ui.main.MainActivity
 import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
@@ -471,14 +472,13 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 //                mDetailText.setText(R.string.status_sign_in_failed)
             STATE_SIGNIN_SUCCESS -> {
                 saveVerifiedMobileNum()
-                navController.navigate(R.id.createProfile)
             }
         }
     }
 
     private fun saveVerifiedMobileNum() {
-        if(this::phoneNumber.isInitialized)
-        HuddlOfflineDataManager.setUserMobNo(mobNo = this.phoneNumber)
+        if (this::phoneNumber.isInitialized)
+            HuddlOfflineDataManager.setUserMobNo(mobNo = this.phoneNumber)
     }
 
 
@@ -552,12 +552,31 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
                 Log.e(TAG, it.key)
                 HuddlOfflineDataManager.setUserAuthToken(it.key)
                 HuddlOfflineDataManager.setUserPhoneAuthenticated(true)
+                getAuthenticatedUserProfile()
                 sessionManager.authenticateWithId(liveData { AuthStatePhoneAuthenticated })
             }
         })
     }
 
-    private fun getAuthenticatedUserProfile() {
+    private fun navigateToProfile() {
+        navController.navigate(R.id.createProfile)
+    }
 
+    private fun getAuthenticatedUserProfile() {
+        authViewModel.getUserProfile().observe(this, Observer {
+            Toast.makeText(this, it.is_instagram_connected.toString(), Toast.LENGTH_SHORT).show()
+            if(it.is_instagram_connected)
+            navigateUserToHuddleMain()
+            else
+                navigateToProfile()
+        })
+    }
+
+     fun navigateUserToHuddleMain()
+    {
+        this?.let {
+            startActivity(Intent(it, MainActivity::class.java))
+        }
+        finish()
     }
 }

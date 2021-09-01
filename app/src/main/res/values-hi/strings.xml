@@ -13,4 +13,5 @@
     <string name="bio">Bio</string>
     <string name="short_bio_here">Short bio here</string>
     <string name="category">Category</string>
+    <string name="log_out">Log Out</string>
 </resources>

@@ -1,5 +1,11 @@
 package yoda.huddl.live.AppUtils
 
+import android.content.Context
+import android.content.Intent
+import androidx.core.content.ContextCompat.startActivity
+import yoda.huddl.live.ui.auth.AuthActivity
+import yoda.huddl.live.ui.main.MainActivity
+
 
 object AppUtils {
 
@@ -24,6 +30,8 @@ object AppUtils {
     fun validateMobile(countryCode: String, moNo: String): Boolean {
         return moNo != null && moNo.isNotEmpty() && moNo.length == 10
     }
+
+
 
 
 }

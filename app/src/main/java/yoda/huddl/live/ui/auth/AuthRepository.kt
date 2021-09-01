@@ -21,8 +21,8 @@ class AuthRepository @Inject constructor(val authApiHelper: AuthApiHelper) : Hud
     suspend fun authenticateUser(token: String) =
         authApiHelper.authenticateUser(token)
 
-    suspend fun getUserProfile(token: String) =
-        authApiHelper.authenticateUser(token)
+    suspend fun getUserProfile() =
+        authApiHelper.getUserProfile()
 
     suspend fun setUserProfile(userProfile : CreateUserProfile,) =
         authApiHelper.setUserProfile(userProfile)

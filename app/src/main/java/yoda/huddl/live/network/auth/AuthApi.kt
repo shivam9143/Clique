@@ -2,10 +2,7 @@ package yoda.huddl.live.network.auth
 
 
 import androidx.lifecycle.LiveData
-import retrofit2.http.Body
-import retrofit2.http.PATCH
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 import yoda.huddl.live.models.*
 
 
@@ -16,7 +13,6 @@ interface AuthApi {
 //        @Path("id") id: Int
 //    ): Flowable<com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion.User?>?
 
-
     @POST("auth/phone/")
     suspend fun authenicateUser(
         @Body token: TokenReqBody
@@ -26,6 +22,9 @@ interface AuthApi {
     suspend fun setUserProfile(
         @Body userProfile : CreateUserProfile
     ) : UserProfile
+
+    @GET("creator/profile/me/")
+    suspend fun getUserProfile() : UserProfile
 
 
 }

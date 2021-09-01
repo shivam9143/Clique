@@ -10,6 +10,7 @@ import yoda.huddl.live.R
 import yoda.huddl.live.AppUtils.SignInTokenManager
 import yoda.huddl.live.Constants.HuddlConstants.SPLASH_TIME_OUT
 import yoda.huddl.live.ui.auth.AuthActivity
+import yoda.huddl.live.ui.main.MainActivity
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -34,22 +35,20 @@ class SplashActivity : AppCompatActivity() {
         }, SPLASH_TIME_OUT)
     }
 
-    private fun redirect()
-    {
+    private fun redirect() {
         //Check if LoggedIn start HuddlLive else start AuthActivity
-
 //        if(this::signInTokenManager.isInitialized && !signInTokenManager.isSignedin())
+        if(!signInTokenManager.isSignedin())
         startAuthActivity()
-//        else
-//            startHuddlLive()
+        else
+            startHuddlLive()
     }
 
-    private fun startAuthActivity()
-    {
+    private fun startAuthActivity() {
         startActivity(Intent(this, AuthActivity::class.java))
     }
 
-    private fun startHuddlLive(){
-
+    private fun startHuddlLive() {
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }
