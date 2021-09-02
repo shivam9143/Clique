@@ -24,7 +24,11 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import yoda.huddl.live.*
+import yoda.huddl.live.AppUtils.HuddlUserProfileManager
 import yoda.huddl.live.Offline.HuddlOfflineDataManager
 import yoda.huddl.live.R
 import yoda.huddl.live.databinding.ActivityAuthBinding
@@ -564,16 +568,18 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 
     private fun getAuthenticatedUserProfile() {
         authViewModel.getUserProfile().observe(this, Observer {
-            Toast.makeText(this, it.is_instagram_connected.toString(), Toast.LENGTH_SHORT).show()
-            if(it.is_instagram_connected)
-            navigateUserToHuddleMain()
+            CoroutineScope(Dispatchers.Main).launch {
+                HuddlUserProfileManager.userProfile = it
+            }
+            Toast.makeText(this, it.is_verified.toString(), Toast.LENGTH_SHORT).show()
+            if (it.is_verified)
+                navigateUserToHuddleMain()
             else
                 navigateToProfile()
         })
     }
 
-     fun navigateUserToHuddleMain()
-    {
+    fun navigateUserToHuddleMain() {
         this?.let {
             startActivity(Intent(it, MainActivity::class.java))
         }

@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="dimen_4sdp">4dp</dimen>
+    <dimen name="dimen_5sdp">5dp</dimen>
+    <dimen name="dimen_6sdp">6dp</dimen>
+    <dimen name="dimen_8sdp">8dp</dimen>
+    <dimen name="dimen_9sdp">9dp</dimen>
+    <dimen name="dimen_2sdp">2dp</dimen>
+    <dimen name="dimen_1sdp">1dp</dimen>
+    <dimen name="dimen_7sdp">7dp</dimen>
+    <dimen name="dimens_32">32dp</dimen>
 </resources>

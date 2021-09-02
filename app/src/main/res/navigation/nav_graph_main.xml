@@ -23,5 +23,4 @@
         android:label="RevenueFragment"
         tools:layout="@layout/fragment_revenue"/>
 
-
 </navigation>

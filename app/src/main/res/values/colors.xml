@@ -9,13 +9,15 @@
     <color name="secondaryLightColor">#ff5c8d</color>
     <color name="secondaryDarkColor">#a00037</color>
     <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
     <color name="colorOnPrimary">#ffffff</color>
     <color name="colorOnSurface">#ffffff</color>
 
     <!--Other colors-->
     <color name="red_200">#cf6679</color>
     <color name="red_600">#b00020</color>
+
+    <color name="icon_grey">#999999</color>
 
     <color name="white_50">#ffffff</color>
 

@@ -12,6 +12,7 @@ import dagger.multibindings.IntKey
 import kotlinx.coroutines.launch
 import yoda.huddl.live.SessionManager
 import yoda.huddl.live.models.CreateUserProfile
+import yoda.huddl.live.models.UserProfile
 import javax.inject.Inject
 
 @HiltViewModel

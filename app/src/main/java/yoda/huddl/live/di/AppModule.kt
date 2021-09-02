@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import yoda.huddl.live.AppUtils.HuddlUserProfileManager
 import yoda.huddl.live.AppUtils.SignInTokenManager
 import yoda.huddl.live.Offline.HuddlOfflineDataManager
 import yoda.huddl.live.network.Instagram.IgGraphApi
@@ -36,6 +37,12 @@ object AppModule {
     @Singleton
     fun provideTokenManger(preferences: SharedPreferences): SignInTokenManager {
         return SignInTokenManager(preferences)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserProfileManger(): HuddlUserProfileManager {
+        return HuddlUserProfileManager()
     }
 
     @Provides

@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- TextInputLayout styles -->
+    
     <style name="App.Theme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="hintTextColor">@color/secondaryTextColor</item>
-        <item name="color">@color/secondaryTextColor</item>
-        <item name="android:textColor">@color/secondaryTextColor</item>
-
-        <item name="android:textColorHint">@android:color/white</item>
-        <item name="colorPrimary">@android:color/white</item>
-        <item name="colorAccent">@android:color/white</item>
-
-        <item name="colorControlNormal">@color/secondaryTextColor</item>
-        <item name="colorControlActivated">@color/secondaryTextColor</item>
-        <item name="colorControlHighlight">@color/secondaryTextColor</item>
+        <item name="hintTextColor">?colorSecondaryVariant</item>
+        <item name="boxStrokeColor">@color/secondaryColor</item>
+        <item name="colorControlActivated">@color/secondaryColor</item>
+        <item name="theme">@style/TextInputCursorColor</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxStrokeWidth">1dp</item>
     </style>
+
+    <style name="TextInputCursorColor" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="colorControlActivated">@color/secondaryColor</item>
+    </style>
+
+<!--    <style name="App.Theme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="hintTextColor">@color/secondaryTextColor</item>-->
+<!--        <item name="color">@color/secondaryTextColor</item>-->
+<!--        <item name="android:textColor">@color/secondaryTextColor</item>-->
+
+<!--        <item name="android:textColorHint">@android:color/white</item>-->
+<!--        <item name="colorPrimary">@android:color/white</item>-->
+<!--        <item name="colorAccent">@android:color/white</item>-->
+
+<!--        <item name="colorControlNormal">@color/secondaryTextColor</item>-->
+<!--        <item name="colorControlActivated">@color/secondaryTextColor</item>-->
+<!--        <item name="colorControlHighlight">@color/secondaryTextColor</item>-->
+<!--    </style>-->
 
     <style name="TextInput" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
         <item name="colorControlNormal">@color/secondaryTextColor</item>
@@ -34,6 +49,12 @@
         <item name="font">@font/work_sans</item>
     </style>
 
+    <style name="Title.Huddl.InverterColor" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textSize">20sp</item>
+        <item name="font">@font/work_sans</item>
+    </style>
+
     <style name="Body.Huddl" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="android:textSize">12sp</item>
@@ -49,6 +70,24 @@
     <style name="Body.14.Huddl" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textSize">14sp</item>
+        <item name="font">@font/work_sans</item>
+    </style>
+
+    <style name="Body.14.Huddl.InvertedColor" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="font">@font/work_sans</item>
+    </style>
+
+    <style name="Body.12.Huddl" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">12sp</item>
+        <item name="font">@font/work_sans</item>
+    </style>
+
+    <style name="Body.10.Huddl" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">10sp</item>
         <item name="font">@font/work_sans</item>
     </style>
 
@@ -106,6 +145,13 @@
         <item name="android:textColor">@drawable/button_text</item>
     </style>
 
+    <style name="App.Theme.Button.Red.Rect" parent="App.Theme.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Rect.All.Light</item>
+        <item name="android:padding">8dp</item>
+        <item name="background">@drawable/gradient_button_bg</item>
+        <item name="android:textColor">@drawable/button_text</item>
+    </style>
+
 <!--    Button Styles Ends -->
 
 
@@ -149,7 +195,11 @@
         <item name="cornerSize">@dimen/light_corner_cuts</item>
     </style>
 
-    <!-- Shapes -->
+    <style name="ShapeAppearance.Rect.All.Light" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/rect_corner_cuts</item>
+    </style>
 
+    <!-- Shapes -->
 
 </resources>

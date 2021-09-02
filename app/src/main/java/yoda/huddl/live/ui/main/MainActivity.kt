@@ -1,28 +1,29 @@
 package yoda.huddl.live.ui.main
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationBarView
 import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.HuddleBaseActivity
 import yoda.huddl.live.R
 import yoda.huddl.live.databinding.ActivityMainBinding
 
+
 @AndroidEntryPoint
 class MainActivity : HuddleBaseActivity() {
 
-    lateinit var binding : ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 
     lateinit var appBarConfiguration: AppBarConfiguration
 
-    lateinit var navController : NavController
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,22 +31,21 @@ class MainActivity : HuddleBaseActivity() {
         val view = binding.root
         setContentView(view)
         initNav()
+        initActionBar()
     }
 
-//    private fun init()
-//    {
-//        val bottomNavigationView = binding.bottomNav
-//        val navGraphIds = listOf(R.navigation.nav_graph_main)
-//        navController = findNavController(binding.mainNavHostFragment)
-//        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.revenueFragment, R.id.profileFragment))
-//        setupActionBarWithNavController(this, navController, appBarConfiguration)
-//        bottomNavigationView.setupWithNavController(navController)
-//    }
+    private fun initActionBar() {
+        supportActionBar?.setLogo(R.drawable.ic_logo_200)
+        supportActionBar?.setDisplayUseLogoEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+    }
 
     private fun initNav() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.mainNavHostFragment) as NavHostFragment
         navController = navHostFragment.navController
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.mobileNumberFrag,
@@ -53,8 +53,23 @@ class MainActivity : HuddleBaseActivity() {
                 R.id.createProfile
             )
         )
-        setupActionBarWithNavController(this, navController, appBarConfiguration)
-        binding.bottomNav.setupWithNavController(navController)
+        NavigationUI.setupWithNavController(binding.bottomNav, navController)
+//        binding.bottomNav.itemIconTintList = ColorStateList.valueOf(Color.parseColor("#EA2323"))
+        binding.bottomNav.setOnItemSelectedListener(NavigationBarView.OnItemSelectedListener { item ->
+            val id = item.itemId
+            when (id) {
+                R.id.profile_menu_item -> {
+                    navController.navigate(R.id.profileFragment)
+                }
+                R.id.revenue_menu_item -> {
+                    navController.navigate(R.id.revenueFragment)
+                }
+                R.id.home_menu_item -> {
+                    navController.navigate(R.id.homeFragment)
+                }
+            }
+            true
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -62,5 +77,20 @@ class MainActivity : HuddleBaseActivity() {
         inflater.inflate(R.menu.context_menu, menu)
         return true
     }
+
+//    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.profile_menu_item -> {
+//                navController.navigate(R.id.profileFragment)
+//            }
+//            R.id.revenue_menu_item -> {
+//                navController.navigate(R.id.revenueFragment)
+//            }
+//            R.id.home_menu_item -> {
+//                navController.navigate(R.id.homeFragment)
+//            }
+//        }
+//        return true
+//    }
 
 }

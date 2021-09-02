@@ -88,4 +88,10 @@
     <string name="hint_phone">+91 - 9988 8877 32</string>
     <string name="mobile_number">Mobile number</string>
     <string name="log_out">Log Out</string>
+    <string name="share">Share</string>
+    <string name="huddl_link_hint">Huddl link Hint</string>
+    <string name="one_on_one_vc">1-on-1 video call</string>
+    <string name="setup">Set Up</string>
+    <string name="my_links">My links</string>
+    <string name="add_your_social_media_links_or_other_custom_links">Add your social media links or other custom links</string>
 </resources>
