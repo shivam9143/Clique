@@ -38,23 +38,12 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
     lateinit var validatedName: String
     lateinit var validatedIgUsername : String
     lateinit var validatedIgAuthToken : String
-
     lateinit var authenticationDialog: AuthenticationDialog
 
     @Inject
     lateinit var sessionManager: SessionManager
 
-//    private val authViewModel = (activity as AuthActivity).authViewModel
-
-//    @Inject
-
     private val TAG = "CreateProfile"
-//    lateinit var authViewModel: AuthViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     fun setListToCategoryMenu() {
         val items = listOf("Chennai", "Delhi", "Mumbai", "Pune")
@@ -156,14 +145,12 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
     override fun onTokenReceived(auth_token: String?) {
         if (auth_token == null)
             return;
-//        appPreferences.putString(AppPreferences.TOKEN, auth_token);
         token = auth_token;
     }
 
     override fun onCodeReceived(code: String?) {
         if (code == null)
             return;
-//        appPreferences.putString(AppPreferences.TOKEN, auth_token);
         this.code = code;
         getIgAuthToken(code)
     }

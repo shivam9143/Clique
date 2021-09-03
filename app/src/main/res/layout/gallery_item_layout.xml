@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="80dp"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:background="?attr/selectableItemBackground">
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleType="centerCrop"
+        android:id="@+id/thumbImage"
+        android:background="@drawable/item_selector_border"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/item_index_label"
+        android:visibility="gone"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:elevation="5dp"
+        android:background="@drawable/rounded_corner_oval_shape"
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        android:text="@string/_2"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="9sp"
+        android:autoSizeMaxTextSize="14sp"
+        android:autoSizeStepGranularity="2sp"
+        android:textColor="@color/white" />
+</androidx.constraintlayout.widget.ConstraintLayout>

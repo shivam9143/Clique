@@ -6,7 +6,6 @@
     <string name="fb_login_protocol_scheme" translatable="false">fb1516309635372254</string>
 
 
-
     <string name="client_id" translatable="false">309886950891112</string>
     <string name="callback_url" translatable="false">https://httpstat.us/200</string>
     <string name="base_url" translatable="false">https://api.instagram.com/</string>
@@ -94,4 +93,12 @@
     <string name="setup">Set Up</string>
     <string name="my_links">My links</string>
     <string name="add_your_social_media_links_or_other_custom_links">Add your social media links or other custom links</string>
+    <string name="upload_photos_to_gain_57_more_followers_you_can_upload_upto_three_videos_images_at_a_time">Upload photos to gain 57% more followers. You can upload upto three videos/images at a time.</string>
+    <string name="add_images_amp_videos">Add images &amp; videos</string>
+    <string name="import_from">Import from</string>
+    <string name="account_holder_s_name">ACCOUNT HOLDER’S NAME</string>
+    <string name="account_number">ACCOUNT NUMBER</string>
+    <string name="ifsc">IFSC</string>
+    <string name="bank_name">BANK NAME</string>
+    <string name="revenue">Revenue</string>
 </resources>

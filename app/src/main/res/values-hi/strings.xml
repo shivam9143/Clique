@@ -18,4 +18,5 @@
     <string name="huddl_link_hint">Huddl link Hint</string>
     <string name="one_on_one_vc">1-on-1 video call</string>
     <string name="setup">Set Up</string>
+    <string name="import_from">Import from</string>
 </resources>

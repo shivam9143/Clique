@@ -6,11 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import yoda.huddl.live.R
-import yoda.huddl.live.databinding.FragmentRevenueBinding
 
-class RevenueFragment : Fragment() {
-
-    lateinit var fragmentRevenueBinding: FragmentRevenueBinding
+class EarningFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +20,7 @@ class RevenueFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var binding = FragmentRevenueBinding.inflate(inflater)
-        fragmentRevenueBinding = binding
-        return binding.root
+        return inflater.inflate(R.layout.fragment_earning, container, false)
     }
 
 }

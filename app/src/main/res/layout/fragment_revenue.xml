@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_margin="@dimen/app_layout_margin"
     android:layout_height="match_parent"
-    tools:context=".ui.main.RevenueFragment">
+    android:id="@+id/root_layout">
 
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Body.20.Huddl"
+            android:text="@string/revenue"
+            android:layout_marginBottom="@dimen/app_layout_margin_top_20"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout_revenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:theme="@style/AppTabLayout"
+            app:tabMode="scrollable"
+            app:tabTextAppearance="@style/AppTabTextAppearance" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/revenue_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Revenue Frag" />
+        android:minHeight="200dp"
+        android:orientation="horizontal"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

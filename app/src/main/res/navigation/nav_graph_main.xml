@@ -23,4 +23,10 @@
         android:label="RevenueFragment"
         tools:layout="@layout/fragment_revenue"/>
 
+    <fragment
+        android:id="@+id/addImagesVideosProfileFragment"
+        android:name="yoda.huddl.live.ui.main.profile.AddImagesVideosProfileFragment"
+        android:label="fragment_add_images_videos_profile"
+        tools:layout="@layout/fragment_add_images_videos_profile" />
+
 </navigation>

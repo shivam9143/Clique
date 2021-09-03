@@ -16,7 +16,25 @@
         <item name="colorControlActivated">@color/secondaryColor</item>
     </style>
 
-<!--    <style name="App.Theme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+    <style name="AppTabLayout" parent="Widget.Design.TabLayout">
+\        <item name="tabIndicatorColor">@color/secondaryColor</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">6dp</item>
+        <item name="tabPaddingEnd">6dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/AppTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/secondaryTextColor</item>
+    </style>
+
+    <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+    </style>
+
+
+    <!--    <style name="App.Theme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
 <!--        <item name="hintTextColor">@color/secondaryTextColor</item>-->
 <!--        <item name="color">@color/secondaryTextColor</item>-->
 <!--        <item name="android:textColor">@color/secondaryTextColor</item>-->
@@ -67,6 +85,12 @@
         <item name="font">@font/work_sans</item>
     </style>
 
+    <style name="Body.20.Huddl" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="font">@font/work_sans</item>
+    </style>
+
     <style name="Body.14.Huddl" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textSize">14sp</item>
@@ -100,6 +124,12 @@
     <style name="Body.14.Sec.Huddl" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">@color/secondaryColor</item>
         <item name="android:textSize">14sp</item>
+        <item name="font">@font/work_sans</item>
+    </style>
+
+    <style name="Body.18.Sec.Huddl" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">18sp</item>
         <item name="font">@font/work_sans</item>
     </style>
 

@@ -568,9 +568,7 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 
     private fun getAuthenticatedUserProfile() {
         authViewModel.getUserProfile().observe(this, Observer {
-            CoroutineScope(Dispatchers.Main).launch {
                 HuddlUserProfileManager.userProfile = it
-            }
             Toast.makeText(this, it.is_verified.toString(), Toast.LENGTH_SHORT).show()
             if (it.is_verified)
                 navigateUserToHuddleMain()

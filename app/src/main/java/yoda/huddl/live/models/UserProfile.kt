@@ -25,7 +25,7 @@ data class UserProfile (
     val name : String,
     val bio : String,
     val category : Int,
-    val mobile_number : Int,
+    val mobile_number : String,
     val huddl_link : String,
     val is_verified : Boolean,
     val links : List<Links>,

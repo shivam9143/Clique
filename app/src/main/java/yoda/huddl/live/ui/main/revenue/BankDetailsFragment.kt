@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import yoda.huddl.live.R
-import yoda.huddl.live.databinding.FragmentRevenueBinding
+import yoda.huddl.live.databinding.FragmentBankDetailsBinding
 
-class RevenueFragment : Fragment() {
+class BankDetailsFragment : Fragment() {
 
-    lateinit var fragmentRevenueBinding: FragmentRevenueBinding
+    lateinit var fragmentBankDetailsBinding: FragmentBankDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +23,8 @@ class RevenueFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var binding = FragmentRevenueBinding.inflate(inflater)
-        fragmentRevenueBinding = binding
+        var binding = FragmentBankDetailsBinding.inflate(inflater)
+        fragmentBankDetailsBinding = binding
         return binding.root
     }
 
