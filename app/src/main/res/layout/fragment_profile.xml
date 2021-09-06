@@ -15,7 +15,6 @@
     android:layout_margin="@dimen/app_layout_margin"
     tools:context=".ui.main.profile.ProfileFragment">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/huddleLinkLayout"
         android:layout_width="match_parent"
@@ -215,6 +214,5 @@
             android:text="@string/add_your_social_media_links_or_other_custom_links"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

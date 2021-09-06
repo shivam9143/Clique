@@ -1,11 +1,10 @@
 package yoda.huddl.live.ui.main.revenue
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import yoda.huddl.live.R
+import androidx.fragment.app.Fragment
 import yoda.huddl.live.databinding.FragmentRevenueBinding
 
 class RevenueFragment : Fragment() {
