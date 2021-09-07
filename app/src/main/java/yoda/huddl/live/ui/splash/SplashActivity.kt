@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import app.yoda.huddl.huddlutils.SignInTokenManager
 import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.R
-import yoda.huddl.live.AppUtils.SignInTokenManager
 import yoda.huddl.live.Constants.HuddlConstants.SPLASH_TIME_OUT
 import yoda.huddl.live.ui.auth.AuthActivity
 import yoda.huddl.live.ui.main.MainActivity

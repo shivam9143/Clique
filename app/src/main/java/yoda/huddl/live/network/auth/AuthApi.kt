@@ -16,15 +16,15 @@ interface AuthApi {
     @POST("auth/phone/")
     suspend fun authenicateUser(
         @Body token: TokenReqBody
-    ) : UserAuthToken
+    ) : BaseResponse<UserAuthToken>
 
     @PATCH("creator/profile/me/")
     suspend fun setUserProfile(
-        @Body userProfile : CreateUserProfile
+        @Body userProfile : BaseResponse<CreateUserProfile>
     ) : UserProfile
 
     @GET("creator/profile/me/")
-    suspend fun getUserProfile() : UserProfile
+    suspend fun getUserProfile() : BaseResponse<UserProfile>
 
 
 }

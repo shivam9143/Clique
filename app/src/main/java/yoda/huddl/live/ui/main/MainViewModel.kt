@@ -12,4 +12,8 @@ class MainViewModel : ViewModel() {
     init {
         Log.e(TAG, TAG)
     }
+
+
+
+
 }

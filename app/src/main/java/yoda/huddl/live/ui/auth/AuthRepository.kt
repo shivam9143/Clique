@@ -1,8 +1,7 @@
 package yoda.huddl.live.ui.auth
 
-import yoda.huddl.live.HuddleBaseRepository
+import app.yoda.huddl.huddlutils.HuddleBaseRepository
 import yoda.huddl.live.models.CreateUserProfile
-import yoda.huddl.live.models.UserProfile
 import yoda.huddl.live.network.auth.AuthApiHelper
 import javax.inject.Inject
 import javax.inject.Singleton

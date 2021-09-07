@@ -16,6 +16,4 @@ interface InstagramAPi {
         @Field("grant_type") grant_type: String = "authorization_code",
         @Field("redirect_uri") redirect_uri: String = "https://httpstat.us/200"
     ) : IGAuthTokenRes
-
-
 }

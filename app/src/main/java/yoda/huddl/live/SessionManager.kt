@@ -3,7 +3,6 @@ package yoda.huddl.live
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import yoda.huddl.live.Offline.HuddlOfflineDataManager
 import yoda.huddl.live.models.UserProfile
 import yoda.huddl.live.ui.auth.AuthState
 import yoda.huddl.live.ui.auth.AuthStateError

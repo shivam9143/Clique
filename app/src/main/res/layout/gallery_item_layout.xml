@@ -16,7 +16,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:scaleType="centerCrop"
         android:id="@+id/thumbImage"
-        android:background="@drawable/item_selector_border"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
@@ -31,13 +30,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:elevation="5dp"
-        android:background="@drawable/rounded_corner_oval_shape"
         android:backgroundTint="@color/black"
         android:gravity="center"
-        android:text="@string/_2"
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="9sp"
         android:autoSizeMaxTextSize="14sp"
         android:autoSizeStepGranularity="2sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_alignParentRight="true" />
 </androidx.constraintlayout.widget.ConstraintLayout>

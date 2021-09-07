@@ -1,7 +1,7 @@
-package yoda.huddl.live.AppUtils
+package app.yoda.huddl.huddlutils
 
 import android.content.SharedPreferences
-import yoda.huddl.live.Offline.HuddlOfflineDataManager.Companion.key_auth_token
+import app.yoda.huddl.huddlutils.HuddlConstants.key_auth_token
 
 class SignInTokenManager(var preferences: SharedPreferences) {
 

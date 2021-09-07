@@ -1,4 +1,7 @@
 package yoda.huddl.live.models
+
+import java.util.*
+
 //
 //data class UserProfile(
 //    val id: Int,
@@ -16,6 +19,14 @@ package yoda.huddl.live.models
 //    val photos: List<String>,
 //    val videos: List<String>
 //)
+//{
+//    "message": "",
+//    "code": 200,
+//    "success": true,
+//    "data": {},
+//    "errors": {}
+//}
+open class BaseResponse<T> (val message : String, val code : String, val success : Boolean, val data : T)
 
 data class UserProfile (
 
@@ -24,7 +35,7 @@ data class UserProfile (
     val username : String,
     val name : String,
     val bio : String,
-    val category : Int,
+    val category : Category,
     val mobile_number : String,
     val huddl_link : String,
     val is_verified : Boolean,
@@ -40,6 +51,11 @@ data class Links (
     val link : String,
     val platform : String,
     val is_verified : Boolean
+)
+
+data class Category (
+    val id : Int,
+    val title : String
 )
 
 data class CreateUserProfile(

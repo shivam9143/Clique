@@ -1,4 +1,4 @@
-package yoda.huddl.live.AppUtils
+package app.yoda.huddl.huddlutils
 
 import okhttp3.Interceptor
 import okhttp3.Response

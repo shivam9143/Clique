@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -41,6 +42,14 @@ class MainActivity : HuddleBaseActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
+    private fun hideBottomNav() {
+        binding.bottomNav.visibility = View.GONE
+    }
+
+    private fun showBottomNav() {
+        binding.bottomNav.visibility = View.VISIBLE
+    }
+
     private fun initNav() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.mainNavHostFragment) as NavHostFragment
@@ -70,7 +79,21 @@ class MainActivity : HuddleBaseActivity() {
             }
             true
         })
+
+            navController.addOnDestinationChangedListener { controller, destination, arguments ->
+                // react on change
+                // you can check destination.id or destination.label and act based on that
+                when (destination.id) {
+                    R.id.addImagesVideosProfileFragment -> {
+                        hideBottomNav()
+                    }
+                    else -> {
+                        showBottomNav()
+                    }
+                }
+            }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater

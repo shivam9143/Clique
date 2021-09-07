@@ -70,7 +70,12 @@
             android:layout_marginVertical="@dimen/app_layout_margin_40"
             app:layout_constraintTop_toBottomOf="@id/titleTV"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/previewCard2"/>
+            app:layout_constraintRight_toLeftOf="@id/previewCard2">
+            <ImageView
+                android:id="@+id/previewCard1IV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/previewCard2"
@@ -81,7 +86,12 @@
             app:layout_constraintRight_toLeftOf="@id/previewCard3"
             android:layout_marginHorizontal="@dimen/standard_margin"
             android:layout_marginVertical="@dimen/app_layout_margin_40"
-            />
+            >
+            <ImageView
+                android:id="@+id/previewCard2IV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/previewCard3"
@@ -91,7 +101,12 @@
             android:layout_marginVertical="@dimen/app_layout_margin_40"
             app:layout_constraintTop_toBottomOf="@id/titleTV"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/previewCard2"/>
+            app:layout_constraintLeft_toRightOf="@id/previewCard2">
+            <ImageView
+                android:id="@+id/previewCard3IV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -124,6 +139,15 @@
             android:alpha=".7"
             android:text="@string/import_from"/>
 
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/importImagesRv"
             android:layout_width="match_parent"
@@ -141,6 +165,8 @@
         style="@style/App.Theme.Button.Red"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

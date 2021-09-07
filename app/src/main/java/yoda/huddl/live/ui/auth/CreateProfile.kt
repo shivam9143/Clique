@@ -15,7 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.liveData
 import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.AppUtils.AppUtils
-import yoda.huddl.live.Offline.HuddlOfflineDataManager
+import yoda.huddl.live.HuddlApplication
 import yoda.huddl.live.R
 import yoda.huddl.live.SessionManager
 import yoda.huddl.live.databinding.FragmentCreateProfileBinding
@@ -64,7 +64,7 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
     }
 
     private fun setMobNo() {
-        HuddlOfflineDataManager.getUserMobNo()?.let {
+        HuddlApplication.huddlOfflineDataManager.getUserMobNo()?.let {
             fragmentCreateProfileBinding.mobileInputEt.setText(it)
             fragmentCreateProfileBinding.mobileInputEt.isEnabled = false
         }
@@ -177,7 +177,7 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
         (activity as AuthActivity).authViewModel.createUserProfile(CreateUserProfile(name = validatedName, bio = validatedBio, email = validatedEmail, username = validatedIgUsername, category = 1L)
         ).observe(viewLifecycleOwner, Observer {
             sessionManager.authenticateWithId(liveData { AuthStateInstagramAuthenticated })
-            HuddlOfflineDataManager.setUserInstaAuthenticated(true)
+            HuddlApplication.huddlOfflineDataManager.setUserInstaAuthenticated(true)
             (activity as AuthActivity).navigateUserToHuddleMain()
         })
     }

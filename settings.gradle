@@ -1,3 +1,6 @@
+include ':HuddlUtils'
+include ':HuddlImageUploaderDownloader'
+include ':huddlgallery'
 include ':auth'
 include ':app'
 rootProject.name = "Huddl"

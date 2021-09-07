@@ -1,6 +1,5 @@
-package yoda.huddl.live
+package app.yoda.huddl.huddlutils
 
-import yoda.huddl.live.models.GenericSuccessFailResponse
 
 
 sealed class ResultWrapper<out T> {

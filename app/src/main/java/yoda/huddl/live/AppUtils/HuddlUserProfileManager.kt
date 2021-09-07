@@ -2,16 +2,16 @@ package yoda.huddl.live.AppUtils
 
 import android.content.Context
 import android.content.SharedPreferences
+import app.yoda.huddl.huddlutils.HuddlConstants
+import app.yoda.huddl.huddlutils.HuddlConstants.key_user_profile
 import com.google.gson.Gson
 import yoda.huddl.live.HuddlApplication
-import yoda.huddl.live.Offline.HuddlOfflineDataManager
-import yoda.huddl.live.Offline.HuddlOfflineDataManager.Companion.key_user_profile
 import yoda.huddl.live.models.UserProfile
 
 class HuddlUserProfileManager {
     companion object {
          val prefs: SharedPreferences = HuddlApplication.context.getSharedPreferences(
-            HuddlOfflineDataManager.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE
+            HuddlConstants.SHARED_PREF_FILE_NAME, Context.MODE_PRIVATE
         )
 
         var userProfile: UserProfile?

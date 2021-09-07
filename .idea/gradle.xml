@@ -11,8 +11,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/HuddlImageUploaderDownloader" />
+            <option value="$PROJECT_DIR$/HuddlUtils" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/auth" />
+            <option value="$PROJECT_DIR$/huddlgallery" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -2,7 +2,6 @@ package yoda.huddl.live.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -24,12 +23,9 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import yoda.huddl.live.*
 import yoda.huddl.live.AppUtils.HuddlUserProfileManager
-import yoda.huddl.live.Offline.HuddlOfflineDataManager
+import yoda.huddl.live.HuddlApplication
+import yoda.huddl.live.HuddleBaseActivity
 import yoda.huddl.live.R
 import yoda.huddl.live.databinding.ActivityAuthBinding
 import yoda.huddl.live.ui.main.MainActivity
@@ -84,6 +80,9 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 //    lateinit var daggerViewModelFactory: DaggerViewModelFactory<AuthViewModel>
 
 //    lateinit var authViewModel: AuthViewModel
+
+//    @Inject
+//    lateinit var sharedPreferences: SharedPreferences
 
     lateinit var facebookCallbackManager: CallbackManager
 
@@ -482,7 +481,7 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 
     private fun saveVerifiedMobileNum() {
         if (this::phoneNumber.isInitialized)
-            HuddlOfflineDataManager.setUserMobNo(mobNo = this.phoneNumber)
+            HuddlApplication.huddlOfflineDataManager.setUserMobNo(mobNo = this.phoneNumber)
     }
 
 
@@ -554,8 +553,8 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
         authViewModel.authenticateUser(firebaseAuthToken).observe(this, Observer {
             it?.let {
                 Log.e(TAG, it.key)
-                HuddlOfflineDataManager.setUserAuthToken(it.key)
-                HuddlOfflineDataManager.setUserPhoneAuthenticated(true)
+                HuddlApplication.huddlOfflineDataManager.setUserAuthToken(it.key)
+                HuddlApplication.huddlOfflineDataManager.setUserPhoneAuthenticated(true)
                 getAuthenticatedUserProfile()
                 sessionManager.authenticateWithId(liveData { AuthStatePhoneAuthenticated })
             }

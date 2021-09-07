@@ -1,10 +1,9 @@
-package yoda.huddl.live
+package app.yoda.huddl.huddlutils
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
-import yoda.huddl.live.models.GenericSuccessFailResponse
 import java.io.IOException
 
 open class HuddleBaseRepository {

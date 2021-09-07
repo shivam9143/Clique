@@ -101,4 +101,5 @@
     <string name="ifsc">IFSC</string>
     <string name="bank_name">BANK NAME</string>
     <string name="revenue">Revenue</string>
+    <string name="next">Next</string>
 </resources>

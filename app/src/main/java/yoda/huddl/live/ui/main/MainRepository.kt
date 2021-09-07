@@ -1,6 +1,6 @@
 package yoda.huddl.live.ui.main
 
-import yoda.huddl.live.HuddleBaseRepository
+import app.yoda.huddl.huddlutils.HuddleBaseRepository
 import yoda.huddl.live.network.main.MainApiHelper
 import javax.inject.Inject
 
