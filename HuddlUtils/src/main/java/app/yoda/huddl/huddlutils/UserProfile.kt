@@ -1,4 +1,5 @@
 package app.yoda.huddl.huddlutils
+
 //
 //data class UserProfile(
 //    val id: Int,
@@ -16,6 +17,9 @@ package app.yoda.huddl.huddlutils
 //    val photos: List<String>,
 //    val videos: List<String>
 //)
+
+data class BaseResponse<T> (val message : String, val code : String, val success : Boolean, val data : T)
+
 
 data class UserProfile (
 

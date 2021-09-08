@@ -13,18 +13,23 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import app.yoda.huddl.huddlimageuploaderdownloader.UploadOneByOneManager
+import app.yoda.huddl.huddlimageuploaderdownloader.models.UploadFormImage
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.AppUtils.FileUploader
 import yoda.huddl.live.AppUtils.FileUploader.FileUploaderCallback
+import yoda.huddl.live.HuddlApplication.Companion.context
 import yoda.huddl.live.databinding.FragmentAddImagesVideosProfileBinding
 import yoda.huddl.live.huddlgallery.adapter.GalleryPicturesAdapter
 import yoda.huddl.live.huddlgallery.adapter.SpaceItemDecoration
 import yoda.huddl.live.huddlgallery.model.GalleryPicture
 import yoda.huddl.live.huddlgallery.viewmodel.GalleryViewModel
 import java.io.File
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -33,6 +38,9 @@ class AddImagesVideosProfileFragment : Fragment() {
     lateinit var fragmentAddImagesVideosProfileBinding: FragmentAddImagesVideosProfileBinding
 
     lateinit var pDialog: ProgressBar
+
+    @Inject
+    lateinit var uploadOneByOneManager: UploadOneByOneManager
 
 
     private val adapter by lazy {
@@ -205,13 +213,13 @@ class AddImagesVideosProfileFragment : Fragment() {
             RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (layoutManager.findLastVisibleItemPosition() == pictures?.lastIndex) {
-//                    loadPictures(pageSize)
+                    loadPictures(pageSize)
                 }
             }
         })
 
         fragmentAddImagesVideosProfileBinding.submitImagesBtn.setOnClickListener {
-//            uploadFiles()
+            uploadImages()
         }
 
 //        tvDone.setOnClickListener {
@@ -221,12 +229,25 @@ class AddImagesVideosProfileFragment : Fragment() {
 //        ivBack.setOnClickListener {
 //            onBackPressed()
 //        }
-//        loadPictures(pageSize)
+        loadPictures(pageSize)
         observeSelectedImagesList()
     }
 
     private fun uploadImages() {
+        var mSelectedImages : ArrayList<UploadFormImage> = ArrayList()
+        adapter?.getSelectedItems()?.let {
+            var validIndex = 0L
+            for(img in it)
+            {
+                val img_obj = UploadFormImage(img.path, validIndex, content_uri = img.uri.toString())
+                validIndex++
+                mSelectedImages.add(img_obj)
+            }
+        }
+        uploadOneByOneManager.startUploadQueue(indexToStartFrom = 0, selectedImages = mSelectedImages)
+        uploadOneByOneManager.currentImageUploadProgressLiveData.observe(viewLifecycleOwner, Observer {
 
+        })
     }
 
 //    fun uploadFiles() {
@@ -283,21 +304,19 @@ class AddImagesVideosProfileFragment : Fragment() {
         } catch (e: Exception) {
         }
     }
-}
 
 
-
-//    private fun loadPictures(pageSize: Int) {
-//        context?.let {
-//            galleryViewModel.getImagesFromGallery(it, pageSize) {
-//                if (it.isNotEmpty()) {
-//                    pictures?.addAll(it)
-//                    pictures?.size?.let { it1 -> adapter?.notifyItemRangeInserted(it1, it.size) }
-//                }
-//                Log.i("GalleryListSize", "${pictures?.size}")
-//            }
-//        }
-//    }
+    private fun loadPictures(pageSize: Int) {
+        context?.let {
+            galleryViewModel.getImagesFromGallery(it, pageSize) {
+                if (it.isNotEmpty()) {
+                    pictures?.addAll(it)
+                    pictures?.size?.let { it1 -> adapter?.notifyItemRangeInserted(it1, it.size) }
+                }
+                Log.i("GalleryListSize", "${pictures?.size}")
+            }
+        }
+    }
 
     //Create extenstions fn for this
 //    private fun showToast(s: String) = Toast.makeText(context, s, Toast.LENGTH_SHORT).show()
@@ -335,5 +354,5 @@ class AddImagesVideosProfileFragment : Fragment() {
 //        }
 //    }
 //    private fun getImageUri(filePath: String): Uri = Uri.fromFile(File(filePath))
-
+}
 

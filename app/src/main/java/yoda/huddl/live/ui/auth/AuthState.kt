@@ -1,9 +1,6 @@
 package yoda.huddl.live.ui.auth
 
 import androidx.lifecycle.MutableLiveData
-import com.google.firebase.auth.UserProfileChangeRequest
-import yoda.huddl.live.models.User
-import yoda.huddl.live.models.UserProfile
 
 sealed class AuthState
 object AuthStateIdle : AuthState()

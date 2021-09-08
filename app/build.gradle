@@ -78,6 +78,7 @@ dependencies {
 
     implementation project(':huddlgallery')
     implementation project(':HuddlUtils')
+    implementation project(':HuddlImageUploaderDownloader')
 
     //Hilt
     implementation "com.google.dagger:hilt-android:2.38.1"

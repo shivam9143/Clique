@@ -3,6 +3,7 @@ package yoda.huddl.live
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
+import app.yoda.huddl.huddlimageuploaderdownloader.UploadOneByOneManager
 import app.yoda.huddl.huddlutils.HuddlOfflineDataManager
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.google.firebase.FirebaseApp

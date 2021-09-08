@@ -2,6 +2,9 @@ package yoda.huddl.live.network.auth
 
 
 import androidx.lifecycle.LiveData
+import app.yoda.huddl.huddlutils.BaseResponse
+import app.yoda.huddl.huddlutils.CreateUserProfile
+import app.yoda.huddl.huddlutils.UserProfile
 import retrofit2.http.*
 import yoda.huddl.live.models.*
 
@@ -20,8 +23,8 @@ interface AuthApi {
 
     @PATCH("creator/profile/me/")
     suspend fun setUserProfile(
-        @Body userProfile : BaseResponse<CreateUserProfile>
-    ) : UserProfile
+        @Body userProfile : CreateUserProfile
+    ) : BaseResponse<UserProfile>
 
     @GET("creator/profile/me/")
     suspend fun getUserProfile() : BaseResponse<UserProfile>

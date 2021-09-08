@@ -5,14 +5,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
+import app.yoda.huddl.huddlutils.CreateUserProfile
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.multibindings.IntKey
 import kotlinx.coroutines.launch
 import yoda.huddl.live.SessionManager
-import yoda.huddl.live.models.CreateUserProfile
-import yoda.huddl.live.models.UserProfile
 import javax.inject.Inject
 
 @HiltViewModel

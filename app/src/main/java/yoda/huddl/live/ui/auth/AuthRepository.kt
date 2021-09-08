@@ -1,16 +1,13 @@
 package yoda.huddl.live.ui.auth
 
+import app.yoda.huddl.huddlutils.CreateUserProfile
 import app.yoda.huddl.huddlutils.HuddleBaseRepository
-import yoda.huddl.live.models.CreateUserProfile
 import yoda.huddl.live.network.auth.AuthApiHelper
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class AuthRepository @Inject constructor(val authApiHelper: AuthApiHelper) : HuddleBaseRepository() {
-
-//    @Inject
-//    lateinit var authApiHelper: AuthApiHelper
 
     suspend fun getIGAuthToken(code : String) =
         authApiHelper.getInstaAuthToken(code)

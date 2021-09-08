@@ -35,7 +35,6 @@ class GalleryViewModel : ViewModel() {
                 list(it)
             }
         }
-
     }
 
     fun getGallerySize(context: Context): Int {
@@ -69,8 +68,7 @@ class GalleryViewModel : ViewModel() {
 
                 Log.i("ImagePath",path)
 
-                galleryImageUrls.add(GalleryPicture(path)) //get Image path from column index
-
+                galleryImageUrls.add(GalleryPicture(path, imageURI)) //get Image path from column index
             }
             Log.i("TotalGallerySize", "$totalRows")
             Log.i("GalleryStart", "$startingRow")

@@ -1,5 +1,7 @@
 package yoda.huddl.live.huddlgallery.model
 
-data class GalleryPicture(val path: String) {
-    var isSelected = false
+import android.net.Uri
+
+data class GalleryPicture(val path: String, val uri : Uri, var isSelected : Boolean = false) {
+
 }

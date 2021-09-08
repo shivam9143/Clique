@@ -1,29 +1,23 @@
 package yoda.huddl.live.ui.auth
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.liveData
+import app.yoda.huddl.huddlutils.CreateUserProfile
 import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.AppUtils.AppUtils
 import yoda.huddl.live.HuddlApplication
 import yoda.huddl.live.R
 import yoda.huddl.live.SessionManager
 import yoda.huddl.live.databinding.FragmentCreateProfileBinding
-import yoda.huddl.live.models.CreateUserProfile
-import yoda.huddl.live.models.UserProfile
 import yoda.huddl.live.ui.auth.authListener.AuthenticationListener
 import yoda.huddl.live.ui.auth.dialog.AuthenticationDialog
-import yoda.huddl.live.ui.main.MainActivity
 import javax.inject.Inject
 
 
@@ -174,7 +168,8 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
     }
 
     private fun createUserProfileAndAuthenticateUser() {
-        (activity as AuthActivity).authViewModel.createUserProfile(CreateUserProfile(name = validatedName, bio = validatedBio, email = validatedEmail, username = validatedIgUsername, category = 1L)
+        (activity as AuthActivity).authViewModel.createUserProfile(
+            CreateUserProfile(name = validatedName, bio = validatedBio, email = validatedEmail, username = validatedIgUsername, category = 1L)
         ).observe(viewLifecycleOwner, Observer {
             sessionManager.authenticateWithId(liveData { AuthStateInstagramAuthenticated })
             HuddlApplication.huddlOfflineDataManager.setUserInstaAuthenticated(true)

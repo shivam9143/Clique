@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import app.yoda.huddl.huddlutils.HuddlConstants
 import app.yoda.huddl.huddlutils.HuddlConstants.key_user_profile
+import app.yoda.huddl.huddlutils.UserProfile
 import com.google.gson.Gson
 import yoda.huddl.live.HuddlApplication
-import yoda.huddl.live.models.UserProfile
 
 class HuddlUserProfileManager {
     companion object {

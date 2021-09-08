@@ -1,8 +1,7 @@
 package yoda.huddl.live.network.auth
 
-import yoda.huddl.live.models.CreateUserProfile
+import app.yoda.huddl.huddlutils.CreateUserProfile
 import yoda.huddl.live.models.TokenReqBody
-import yoda.huddl.live.models.UserProfile
 import yoda.huddl.live.network.Instagram.IgGraphApi
 import yoda.huddl.live.network.Instagram.InstagramAPi
 import javax.inject.Inject
@@ -12,9 +11,6 @@ class AuthApiHelper @Inject constructor(
     val instagramAPi: InstagramAPi,
     val igGraphApi: IgGraphApi
 ) {
-
-//    @Inject
-//    lateinit var authApi: AuthApi
 
     suspend fun getInstaAuthToken(code: String) =
         instagramAPi.getAuthIgAuthToken(code = code)

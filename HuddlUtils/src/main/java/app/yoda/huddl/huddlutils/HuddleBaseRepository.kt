@@ -8,7 +8,7 @@ import java.io.IOException
 
 open class HuddleBaseRepository {
 
-    suspend fun <T> huddleSafeApiCall(dispatcher: CoroutineDispatcher = Dispatchers.IO, endpointName : String?, apiCall : suspend () -> T) : ResultWrapper<T> {
+    suspend fun <T> huddleSafeApiCall(dispatcher: CoroutineDispatcher = Dispatchers.IO, endpointName : String? = "", apiCall : suspend () -> T) : ResultWrapper<T> {
         return withContext(dispatcher){
             try {
                 ResultWrapper.Success(apiCall.invoke())

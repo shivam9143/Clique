@@ -3,7 +3,7 @@ package yoda.huddl.live
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import yoda.huddl.live.models.UserProfile
+import app.yoda.huddl.huddlutils.UserProfile
 import yoda.huddl.live.ui.auth.AuthState
 import yoda.huddl.live.ui.auth.AuthStateError
 import yoda.huddl.live.ui.auth.AuthStateLoading

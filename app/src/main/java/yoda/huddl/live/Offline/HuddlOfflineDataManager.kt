@@ -6,7 +6,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import yoda.huddl.live.HuddlApplication
 import yoda.huddl.live.HuddlApplication.Companion.context
-import yoda.huddl.live.models.UserProfile
 import yoda.huddl.live.ui.auth.AuthState
 import javax.inject.Inject
 

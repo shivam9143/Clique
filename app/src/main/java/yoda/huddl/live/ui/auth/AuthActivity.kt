@@ -552,8 +552,8 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
     private fun authenticateUser(firebaseAuthToken: String) {
         authViewModel.authenticateUser(firebaseAuthToken).observe(this, Observer {
             it?.let {
-                Log.e(TAG, it.key)
-                HuddlApplication.huddlOfflineDataManager.setUserAuthToken(it.key)
+                Log.e(TAG, it.data.key)
+                HuddlApplication.huddlOfflineDataManager.setUserAuthToken(it.data.key)
                 HuddlApplication.huddlOfflineDataManager.setUserPhoneAuthenticated(true)
                 getAuthenticatedUserProfile()
                 sessionManager.authenticateWithId(liveData { AuthStatePhoneAuthenticated })
@@ -567,9 +567,9 @@ class AuthActivity : HuddleBaseActivity(), View.OnClickListener {
 
     private fun getAuthenticatedUserProfile() {
         authViewModel.getUserProfile().observe(this, Observer {
-                HuddlUserProfileManager.userProfile = it
-            Toast.makeText(this, it.is_verified.toString(), Toast.LENGTH_SHORT).show()
-            if (it.is_verified)
+                HuddlUserProfileManager.userProfile = it.data
+            Toast.makeText(this, it.data.is_verified.toString(), Toast.LENGTH_SHORT).show()
+            if (it.data.is_verified)
                 navigateUserToHuddleMain()
             else
                 navigateToProfile()
