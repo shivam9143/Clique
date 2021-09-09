@@ -12,6 +12,9 @@ interface UploadApi {
     @Multipart
     @POST("creator/photo/")
     suspend fun uploadProfileImages(
-        @Part photo: MultipartBody.Part): BaseResponse<JsonObject>
+        @Part photo: MultipartBody.Part,
+        @Part source: MultipartBody.Part
+    ): BaseResponse<JsonObject>
+
 
 }

@@ -73,6 +73,8 @@ class AddImagesVideosProfileFragment : Fragment() {
         return binding.root
     }
 
+
+
     private fun requestReadStoragePermission() {
         val readStorage = Manifest.permission.READ_EXTERNAL_STORAGE
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context?.let {

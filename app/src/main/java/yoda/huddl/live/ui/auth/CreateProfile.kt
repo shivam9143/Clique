@@ -30,8 +30,8 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
     lateinit var validatedBio: String
     lateinit var validatedEmail: String
     lateinit var validatedName: String
-    lateinit var validatedIgUsername : String
-    lateinit var validatedIgAuthToken : String
+    lateinit var validatedIgUsername: String
+    lateinit var validatedIgAuthToken: String
     lateinit var authenticationDialog: AuthenticationDialog
 
     @Inject
@@ -169,16 +169,19 @@ class CreateProfile : Fragment(), View.OnClickListener, AuthenticationListener {
 
     private fun createUserProfileAndAuthenticateUser() {
         (activity as AuthActivity).authViewModel.createUserProfile(
-            CreateUserProfile(name = validatedName, bio = validatedBio, email = validatedEmail, username = validatedIgUsername, category = 1L)
+            CreateUserProfile(
+                name = validatedName,
+                bio = validatedBio,
+                email = validatedEmail,
+                username = validatedIgUsername,
+                category = 1L
+            )
         ).observe(viewLifecycleOwner, Observer {
             sessionManager.authenticateWithId(liveData { AuthStateInstagramAuthenticated })
             HuddlApplication.huddlOfflineDataManager.setUserInstaAuthenticated(true)
             (activity as AuthActivity).navigateUserToHuddleMain()
         })
     }
-
-
-
 
 
 }

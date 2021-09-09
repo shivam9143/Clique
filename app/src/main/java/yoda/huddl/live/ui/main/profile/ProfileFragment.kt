@@ -38,9 +38,11 @@ class ProfileFragment : Fragment() {
 
     private fun initRecyclerView() {
         adapter = activity?.let {
-            ProfileImagesAdapter(it, ArrayList<String>(), 2) { clicked ->
-                if (clicked) {
-                    clickedOnAddPhotosCard()
+            HuddlUserProfileManager.userProfile?.photos?.let { it1 ->
+                ProfileImagesAdapter(it, it1, 3) { clicked ->
+                    if (clicked) {
+                        clickedOnAddPhotosCard()
+                    }
                 }
             }
         }
@@ -54,7 +56,7 @@ class ProfileFragment : Fragment() {
         fragmentProfileBinding.huddlUserName.text = HuddlUserProfileManager.userProfile?.username
         fragmentProfileBinding.userBio.text = HuddlUserProfileManager.userProfile?.bio
         fragmentProfileBinding.userCategory.text =
-            HuddlUserProfileManager.userProfile?.category.toString()
+            HuddlUserProfileManager.userProfile?.category?.title
         fragmentProfileBinding.huddlLinkTv.text = HuddlUserProfileManager.userProfile?.huddl_link
     }
 

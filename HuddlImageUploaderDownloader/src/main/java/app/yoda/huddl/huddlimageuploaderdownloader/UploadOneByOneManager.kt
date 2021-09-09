@@ -101,7 +101,7 @@ class UploadOneByOneManager @Inject constructor(val context: Context, val upload
                 MultipartBody.Part.createFormData("photo", it.name, fileBody)
 
             val sourcePart =
-                MultipartBody.Part.createFormData("source", "LC")
+                MultipartBody.Part.createFormData("source", "IG")
             uploadSingleImageManager.upload(
                 filePart,
                 currentImageProgressLiveData,

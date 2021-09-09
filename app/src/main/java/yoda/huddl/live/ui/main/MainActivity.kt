@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
+import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -15,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import yoda.huddl.live.HuddleBaseActivity
 import yoda.huddl.live.R
 import yoda.huddl.live.databinding.ActivityMainBinding
+import yoda.huddl.live.ui.auth.AuthViewModel
 
 
 @AndroidEntryPoint
@@ -25,6 +27,8 @@ class MainActivity : HuddleBaseActivity() {
     lateinit var appBarConfiguration: AppBarConfiguration
 
     lateinit var navController: NavController
+
+    val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

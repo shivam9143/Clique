@@ -18,6 +18,9 @@ class AuthApiHelper @Inject constructor(
     suspend fun getIgUserProfile(token: String) =
         igGraphApi.getIgUserProfile(access_token = token)
 
+    suspend fun getIgUserMedia(token: String) =
+        igGraphApi.getIgUserMedia(access_token = token)
+
     suspend fun authenticateUser(token: String) =
         authApi.authenicateUser(TokenReqBody(token))
 

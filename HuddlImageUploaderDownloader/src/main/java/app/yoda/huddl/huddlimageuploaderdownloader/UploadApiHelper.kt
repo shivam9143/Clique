@@ -9,6 +9,6 @@ import javax.inject.Singleton
 class UploadApiHelper @Inject constructor(val uploadApi: UploadApi) {
 
     suspend fun uploadFile(photo : MultipartBody.Part, source : MultipartBody.Part) =
-        uploadApi.uploadProfileImages(photo = photo)
+        uploadApi.uploadProfileImages(photo = photo, source)
 
 }

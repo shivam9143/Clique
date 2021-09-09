@@ -6,6 +6,9 @@
     android:layout_marginHorizontal="@dimen/app_layout_margin"
     android:background="@drawable/rounded_corner_back">
 
-
+<ImageView
+    android:id="@+id/profileImage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 
 </com.google.android.material.card.MaterialCardView>

@@ -42,7 +42,7 @@ class AuthenticationDialog constructor(context: Context, val listener: Authentic
                 "oauth/authorize/?client_id=" +
                 context.resources.getString(R.string.client_id) +
                 "&redirect_uri=" + redirect_url +
-                "&response_type=code&scope=user_profile,user_media"
+                "&response_type=code&scope=user_profile,user_media,instagram_graph_user_media"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
